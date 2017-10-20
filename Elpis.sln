@@ -1,0 +1,105 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Elpis", "Elpis\Elpis.vbproj", "{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "UnitTests", "UnitTests\UnitTests.vbproj", "{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
+		CD_ROM|x64 = CD_ROM|x64
+		CD_ROM|x86 = CD_ROM|x86
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		DVD-5|Any CPU = DVD-5|Any CPU
+		DVD-5|x64 = DVD-5|x64
+		DVD-5|x86 = DVD-5|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+		SingleImage|Any CPU = SingleImage|Any CPU
+		SingleImage|x64 = SingleImage|x64
+		SingleImage|x86 = SingleImage|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.CD_ROM|x64.ActiveCfg = Release|x64
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.CD_ROM|x64.Build.0 = Release|x64
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.CD_ROM|x86.ActiveCfg = Release|x86
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.CD_ROM|x86.Build.0 = Release|x86
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.Debug|x64.ActiveCfg = Debug|x64
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.Debug|x64.Build.0 = Debug|x64
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.Debug|x86.ActiveCfg = Debug|x86
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.Debug|x86.Build.0 = Debug|x86
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.DVD-5|x64.ActiveCfg = Debug|x64
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.DVD-5|x64.Build.0 = Debug|x64
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.DVD-5|x86.ActiveCfg = Debug|x86
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.DVD-5|x86.Build.0 = Debug|x86
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.Release|x64.ActiveCfg = Release|x64
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.Release|x64.Build.0 = Release|x64
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.Release|x86.ActiveCfg = Release|x86
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.Release|x86.Build.0 = Release|x86
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.SingleImage|x64.ActiveCfg = Release|x64
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.SingleImage|x64.Build.0 = Release|x64
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.SingleImage|x86.ActiveCfg = Release|x86
+		{5FB35C44-46D3-43FF-B6F8-261FE78CF8C7}.SingleImage|x86.Build.0 = Release|x86
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.CD_ROM|x64.ActiveCfg = Debug|Any CPU
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.CD_ROM|x64.Build.0 = Debug|Any CPU
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.CD_ROM|x86.ActiveCfg = Release|x86
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.CD_ROM|x86.Build.0 = Release|x86
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.Debug|x64.Build.0 = Debug|Any CPU
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.Debug|x86.ActiveCfg = Debug|x86
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.Debug|x86.Build.0 = Debug|x86
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.DVD-5|x64.ActiveCfg = Debug|Any CPU
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.DVD-5|x64.Build.0 = Debug|Any CPU
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.DVD-5|x86.ActiveCfg = Debug|x86
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.DVD-5|x86.Build.0 = Debug|x86
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.Release|x64.ActiveCfg = Release|Any CPU
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.Release|x64.Build.0 = Release|Any CPU
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.Release|x86.ActiveCfg = Release|x86
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.Release|x86.Build.0 = Release|x86
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.SingleImage|x64.ActiveCfg = Debug|Any CPU
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.SingleImage|x64.Build.0 = Debug|Any CPU
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.SingleImage|x86.ActiveCfg = Release|x86
+		{F2DCCA56-C094-45E8-A70C-2838D61E4FF3}.SingleImage|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://lauchsoftprotos.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Elpis\\Elpis.vbproj
+		SccProjectName1 = Elpis
+		SccLocalPath1 = Elpis
+		SccProjectUniqueName2 = UnitTests\\UnitTests.vbproj
+		SccProjectName2 = UnitTests
+		SccLocalPath2 = UnitTests
+	EndGlobalSection
+EndGlobal

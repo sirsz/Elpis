@@ -1,0 +1,23 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Elpis"
+        xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit" x:Class="WindowReport2"
+        mc:Ignorable="d"
+        Title="WindowReport2" Height="394" Width="785">
+    <Grid>
+        
+
+        <!-- chartingToolkit:ColumnSeries HorizontalAlignment="Left" Height="195" Margin="39,38,0,0" VerticalAlignment="Top" Width="212"/> -->
+        <chartingToolkit:Chart Height="158" HorizontalAlignment="Left"  
+            Margin="54,0,0,68" Name="ColumnChart1" Title="Total Marks" 
+            VerticalAlignment="Bottom" Width="172">
+            <chartingToolkit:ColumnSeries DependentValuePath="Value"  IndependentValuePath="Key" ItemsSource="{Binding}" 
+            IsSelectionEnabled="True"></chartingToolkit:ColumnSeries>
+        </chartingToolkit:Chart>
+        <Button x:Name="ShowChart" Content="Show chart" HorizontalAlignment="Left" Margin="34,20,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>

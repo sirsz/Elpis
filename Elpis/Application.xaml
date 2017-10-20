@@ -1,0 +1,22 @@
+﻿<Application x:Class="Application"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Elpis"
+    ShutdownMode="OnLastWindowClose" 
+    StartupUri="LoginWindow.xaml"
+             Startup="Application_Started"
+             Exit="Application_Exit">
+    <!-- For the StartupUri give one from below: -->
+    <!-- StartupUri="WindowReport2.xaml"> -->
+    <!-- StartupUri="WindowReport3.xaml"> -->
+    <!-- StartupUri="WindowReport3_ref.xaml"> -->
+    <!-- StartupUri="WindowReportPresentation.xaml"> -->
+    <!-- StartupUri="ElpisMainWindow.xaml"> -->
+    <!-- StartupUri="LoginWindow.xaml"> -->
+    
+    
+
+    <Application.Resources>
+        
+    </Application.Resources>
+</Application>
