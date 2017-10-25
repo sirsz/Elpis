@@ -38,8 +38,4 @@ This is Elpis software repository
 
 The project was co-founded by National Centre for Research and Development in frame of the Social Innovation program II.
 
-Projekt współfinansowany przez Narodowe Centrum Badań i Rozwoju w ramach programu Innowacje Społeczne II
-
-![SIRS-Z Patrons](https://raw.githubusercontent.com/sirsz/Elpis/master/Docs/SIRS-Z_banner.png)
-
 Last modified 2017-10-24
