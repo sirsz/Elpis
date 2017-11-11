@@ -20,7 +20,7 @@ Public Class ElpisMainWindow
 
 
     Sub UpdateContext()
-        Log("Info: Aktualizacja kontekstu")
+        Log("Info: Context update")
         textBoxInfoHospital.Text = My.Application.config_.SettingsHospitalName_
         textBoxInfoWard.Text = context_.currWard_.Get_f_Name
 
@@ -48,27 +48,27 @@ Public Class ElpisMainWindow
 
         Select Case context_.TabSelected_
             Case Context.TabSelected.Hospital
-                textBoxInfoContext.Text = "Szpital"
+                textBoxInfoContext.Text = "Hospital"
             Case Context.TabSelected.Ward
-                textBoxInfoContext.Text = "Oddział"
+                textBoxInfoContext.Text = "synmar.pl"
             Case Context.TabSelected.Room
-                textBoxInfoContext.Text = "Sala szpitalna"
+                textBoxInfoContext.Text = "Room"
             Case Context.TabSelected.Staff
                 textBoxInfoContext.Text = "Personel"
             Case Context.TabSelected.Patient
-                textBoxInfoContext.Text = "Pacjent"
+                textBoxInfoContext.Text = "Pacient"
             Case Context.TabSelected.Visit
-                textBoxInfoContext.Text = "Wizyta"
+                textBoxInfoContext.Text = "Visit"
             Case Context.TabSelected.LabTest
                 textBoxInfoContext.Text = "Test"
             Case Context.TabSelected.Duty
-                textBoxInfoContext.Text = "Dyżur"
+                textBoxInfoContext.Text = "Shift"
             Case Context.TabSelected.None
                 textBoxInfoContext.Text = String.Empty
             Case Else
                 textBoxInfoContext.Text = String.Empty
         End Select
-        Log("Info: Kontekst programu został zaktualizowany")
+        Log("Info: Context was updated")
     End Sub
 
     ' Logging interface - Uses Separate logger class
@@ -84,7 +84,7 @@ Public Class ElpisMainWindow
 
     Private Sub buttonMenCalculate_Click(sender As Object, e As RoutedEventArgs) Handles buttonMenCalculate.Click
 
-        Log("Info: Obliczanie ścieżek zakażeń...")
+        Log("Info: Computing transmission paths...")
         'executeCmdCommand() ' For the testing purposs
         ExportAllData()
         executeRAnalysisScript()
@@ -95,7 +95,7 @@ Public Class ElpisMainWindow
         results_visualization_window_report.Show()
         results_visualization_window_report.Activate()
 
-        Log("Info: Obliczanie ścieżek zakażeń - zakończono")
+        Log("Info: Computing transmission paths - finished")
 
     End Sub
 
@@ -110,7 +110,7 @@ Public Class ElpisMainWindow
         'Process.Start("cmd", "/c echo This is R analysis report > Elpis-DataAnalysisEngine_Report.txt")
         'Process.Start("cmd", "/c timeout 5")
         Dim report_generation_time = DateTime.Now.ToString("[yyyy/MM/dd HH:mm:ss]")
-        Dim cmd_r_command = "/c echo Trwa analiza danych - wyznaczanie ścieżek zakażeń (R). Proszę czekać.. & timeout 7 & echo " &
+        Dim cmd_r_command = "/c echo Computing(R). Please wait.. & timeout 7 & echo " &
         " [R analysis report " & report_generation_time & "] > SIRS-Z_R_Report.txt"
 
         Process.Start("cmd", cmd_r_command)
@@ -144,7 +144,7 @@ Public Class ElpisMainWindow
 
     Sub executeRAnalysisScript()
         Dim report_generation_time = DateTime.Now.ToString("[yyyy/MM/dd HH:mm:ss]")
-        'Dim cmd_r_command = "/c echo [SIRS-Z " & report_generation_time & "] Trwa analiza danych - wyznaczanie ścieżek zakażeń (R). Proszę czekać.. " &
+        'Dim cmd_r_command = "/c echo [SIRS-Z " & report_generation_time & "] Computing(R). Please wait.. " &
         '" & start siralgorytm\RCommand.bat > siralgorytm\RCommand.log"
         Dim home_directory = Directory.GetCurrentDirectory()
         Dim script_name = "RCommand.bat"
@@ -300,7 +300,7 @@ Public Class ElpisMainWindow
     Private Sub buttonNavNew_Click(sender As Object, e As RoutedEventArgs) Handles buttonNavNew.Click
         Log(buttonNavNew.Content.ToString)
         If Not context_.TabSelected_ = Context.TabSelected.None Then
-            Log("Info: Kontekst programu nie został zdefiniowany - operacja nie zostanie wykonana.")
+            Log("Info: Context programu nie został zdefiniowany - operacja nie zostanie wykonana.")
         End If
 
         If TabItem2Ward.IsSelected() Then
@@ -338,7 +338,7 @@ Public Class ElpisMainWindow
         ElseIf TabItem8Duty.IsSelected Then
             ITabItem8Duty_Update()
         Else
-            Log("Info: Nieoczekiwana opcja - operacja nie zostanie wykonana.")
+            Log("Info: Unexpected operation - canceled.")
         End If
 
     End Sub
@@ -347,7 +347,7 @@ Public Class ElpisMainWindow
         Log(buttonNavDelete.Content.ToString)
         Log(buttonNavCleanForm.Content.ToString)
         If context_.TabSelected_ = Context.TabSelected.None Then
-            Log("Info: Operacja usunięcia anulowana - kontekst programu jest pusty. Znajdź wpis do usunięcia.")
+            Log("Info: Operation canceled - The program context is empty.")
             Return
         End If
 
@@ -385,22 +385,22 @@ Public Class ElpisMainWindow
             If MainWindow_listView.SelectedIndex < MainWindow_listView.Items.Count - 1 Then
                 MainWindow_listView.SelectedIndex = MainWindow_listView.SelectedIndex + 1
             Else
-                Log("Koniec listy")
+                Log("End of the list")
             End If
         End If
     End Sub
 
 
     Private Sub MIF_Open_Click(sender As Object, e As RoutedEventArgs) Handles MIF_Open.Click
-        Toolbox.Log("Opcja Otwórz - nieaktywna w tej wersji")
+        Toolbox.Log("Option Open - not available")
     End Sub
 
     Private Sub MIF_New_Click(sender As Object, e As RoutedEventArgs) Handles MIF_New.Click
-        Toolbox.Log("Opcja Nowy - nieaktywna w tej wersji")
+        Toolbox.Log("Option New - not available")
     End Sub
 
     Private Sub MIE_ClearAll_Click(sender As Object, e As RoutedEventArgs) Handles MIE_ClearAll.Click
-        Toolbox.Log("Opcja Wyczyść - nieaktywna w tej wersji")
+        Toolbox.Log("Option Clear - not available")
     End Sub
 
     Private Sub MIV_Settings_Click(sender As Object, e As RoutedEventArgs) Handles MIV_Settings.Click
@@ -421,12 +421,12 @@ Public Class ElpisMainWindow
 
     Private Sub MIH_ViewHelp_Click(sender As Object, e As RoutedEventArgs) Handles MIH_ViewHelp.Click
         Log(MIH_ViewHelp.Header.ToString)
-        MsgBox("Pomoc do programu Elips" & Environment.NewLine & Environment.NewLine & "www: http://www.sirsz.pl" & Environment.NewLine & "E-mail: biuro@sirsz.org")
+        MsgBox("Help Elips" & Environment.NewLine & Environment.NewLine & "www: http://www.sirsz.pl" & Environment.NewLine & "E-mail: biuro@sirsz.org")
     End Sub
 
     Private Sub MIP_About_Click(sender As Object, e As RoutedEventArgs) Handles MIP_About.Click
         Log(MIH_ViewHelp.Header.ToString)
-        MsgBox("Elips - Manager danych Systemu Informatycznego Redukcji Zakażeń Szpitalnych" & Environment.NewLine & "v 1.1.11. Beta" & Environment.NewLine & "SIRS-Z © 2016 - 2017" & Environment.NewLine & "WWW: http://www.sirsz.pl/")
+        MsgBox("Elips - Manager of data in SIRSZ" & Environment.NewLine & "v 1.1.12. Beta" & Environment.NewLine & "SIRS-Z © 2016 - 2017" & Environment.NewLine & "WWW: http://www.sirsz.pl/")
     End Sub
 
 
@@ -442,7 +442,7 @@ Public Class ElpisMainWindow
     End Sub
 
     Private Sub ITabItem2Ward_Search()
-        Log("Info: Wyszukiwanie oddziału..")
+        Log("Info: Searching for the ward..")
         ' Update program context
         context_.TabSelected_ = Context.TabSelected.Ward
         UpdateContext()
@@ -453,11 +453,11 @@ Public Class ElpisMainWindow
         Fill_ListView(result)
         result.Clear()
         result.Dispose()
-        Log("Info: Zakończono wyszukiwanie oddziałów. Liczba znalezionych pozycji: " & result.Rows.Count)
+        Log("Info: finished wards searching. Number of positions: " & result.Rows.Count)
     End Sub
 
     Sub ITabItem3Room_Search()
-        Log("Info: Wyszukiwanie sal..")
+        Log("Info: Searching for the room..")
         ' Update program context
         context_.TabSelected_ = Context.TabSelected.Room
         UpdateContext()
@@ -469,11 +469,11 @@ Public Class ElpisMainWindow
         Fill_ListView(result)
         result.Clear()
         result.Dispose()
-        Log("Info: Zakończono wyszukiwanie sal. Liczba znalezionych pozycji: " & result.Rows.Count)
+        Log("Info: finished Searching room. Number of positions: " & result.Rows.Count)
     End Sub
 
     Sub ITabItem4Personel_Search()
-        Log("Info: Wyszukiwanie personelu..")
+        Log("Info: Searching for the personel..")
         ' Update program context
         context_.TabSelected_ = Context.TabSelected.Staff
         UpdateContext()
@@ -486,11 +486,11 @@ Public Class ElpisMainWindow
         Fill_ListView(result)
         result.Clear()
         result.Dispose()
-        Log("Info: Zakończono wyszukiwanie pracowników. Liczba znalezionych pozycji: " & result.Rows.Count)
+        Log("Info: finished Searching personnel. Number of positions: " & result.Rows.Count)
     End Sub
 
     Sub ITabItem6Visit_Search()
-        Log("Info: Wyszukiwanie wizyty..")
+        Log("Info: Searching for the visits..")
         context_.TabSelected_ = Context.TabSelected.Visit
         UpdateContext()
         ITabItem6Visit_UpdateContextVisitFromForm()
@@ -499,11 +499,11 @@ Public Class ElpisMainWindow
         Fill_ListView(result)
         result.Clear()
         result.Dispose()
-        Log("Info: Zakończono wyszukiwanie wizyt. Liczba znalezionych pozycji: " & result.Rows.Count)
+        Log("Info: finished Searching wizits. Number of positions: " & result.Rows.Count)
     End Sub
 
     Sub ITabItem7LabTest_Search()
-        Log("Info: Wyszukiwanie badania..")
+        Log("Info: Searching for the test..")
         context_.TabSelected_ = Context.TabSelected.LabTest
         UpdateContext()
         ITabItem7LabTest_UpdateContextLabTestFromForm()
@@ -512,11 +512,11 @@ Public Class ElpisMainWindow
         Fill_ListView(result)
         result.Clear()
         result.Dispose()
-        Log("Info: Zakończono wyszukiwanie badań. Liczba znalezionych pozycji: " & result.Rows.Count)
+        Log("Info: finished Searching tests. Number of positions: " & result.Rows.Count)
     End Sub
 
     Sub ITabItem8Duty_Search()
-        Log("Info: Wyszukiwanie dyżuru..")
+        Log("Info: Searching for the shifts..")
         context_.TabSelected_ = Context.TabSelected.Duty
         UpdateContext()
         ITabItem8Duty_UpdateContextDutyFromForm()
@@ -525,11 +525,11 @@ Public Class ElpisMainWindow
         Fill_ListView(result)
         result.Clear()
         result.Dispose()
-        Log("Info: Zakończono wyszukiwanie dyżurów. Liczba znalezionych pozycji: " & result.Rows.Count)
+        Log("Info: finished Searching Shifts. Number of positions: " & result.Rows.Count)
     End Sub
 
     Private Sub listViewTest_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) Handles MainWindow_listView.SelectionChanged
-        Log("[Selektor] Wybór zakładki zmienił się.")
+        Log("[Selektor] Tab changed.")
         If Not MainWindow_listView.SelectedItem Is Nothing Then
             Log(MainWindow_listView.SelectedIndex().ToString)
             Log(MainWindow_listView.SelectedItem().ToString)
@@ -551,7 +551,7 @@ Public Class ElpisMainWindow
             ElseIf TabItem8Duty.IsSelected Then
                 ITabItem8Duty_FillForm(selected_item_as_string)
             Else
-                Log("Zakładka nieznana - akcja zignorowana.")
+                Log("Card no knowed. Action ignored")
             End If
 
             UpdateContext()
@@ -571,7 +571,7 @@ Public Class ElpisMainWindow
 
     ' CLEAN BUTTON SEVICE METHODS - BEGIN
     Private Sub ITabItem2Ward_Clean()
-        Log("Czyszczenie formularza Oddział")
+        Log("Clearing Card Ward")
 
         Ft2TextBoxWardID.Text = String.Empty
         Ft2TextBoxWardName.Text = String.Empty
@@ -583,7 +583,7 @@ Public Class ElpisMainWindow
     End Sub
 
     Sub ITabItem3Room_Clean()
-        Log("Czyszczenie formularza Sal")
+        Log("Clearing Card room")
         Ft3TextBoxRoomNumber.Text = String.Empty
         Ft3TextBoxRoomId.Text = String.Empty
         Ft3TextBoxMeanOccupancy.Text = String.Empty
@@ -595,7 +595,7 @@ Public Class ElpisMainWindow
     End Sub
 
     Sub ITabItem4Personel_Clean()
-        Log("Czyszczenie formularza Personelu")
+        Log("Clearing Card Personnel")
         Ft4PersonelHospID_TextBox.Text = String.Empty
         Ft4PersonelName_TextBox.Text = String.Empty
         Ft4PersonelFunction_ComboBox.Text = String.Empty
@@ -604,7 +604,7 @@ Public Class ElpisMainWindow
     End Sub
 
     Sub ITabItem5Patient_Clean()
-        Log("Czyszczenie formularza Pacjenta")
+        Log("Clearing Card Pacient")
         Ft5PatientHospID_TextBox.Text = String.Empty
         Ft5PatientHospIdent_Textbox.Text = String.Empty
         Ft5PatientHospAdditionalInfo_Textbox.Text = String.Empty
@@ -613,7 +613,7 @@ Public Class ElpisMainWindow
     End Sub
 
     Sub ITabItem6Visit_Clean()
-        Log("Czyszczenie formularza Wizyt")
+        Log("Clearing Card Wisit")
         'Ft6Visit_HospID_TextBox.Text = String.Empty
         Ft6Visit_PatientHospID_TextBox.Text = String.Empty
         Ft6Visit_HospPlaceID_TextBox.Text = String.Empty
@@ -625,7 +625,7 @@ Public Class ElpisMainWindow
     End Sub
 
     Sub ITabItem7LabTest_Clean()
-        Log("Czyszczenie formularza Test")
+        Log("Clearing the tab Test")
 
         Ft7LabTest_LabTestID_TextBox.Text = String.Empty
         Ft7LabTest_PatientHospID_TextBox.Text = String.Empty
@@ -644,7 +644,7 @@ Public Class ElpisMainWindow
     End Sub
 
     Sub ITabItem8Duty_Clean()
-        Log("Czyszczenie formularza Dyżur")
+        Log("Clearing the tab Shift")
 
         Ft8Duty_Date_DatePicker.Text = String.Empty
         Ft8Duty_PersonelHospID_TextBox.Text = String.Empty
@@ -678,10 +678,10 @@ Public Class ElpisMainWindow
     End Sub
 
     Sub ITabItem4Personel_FillForm(ByVal hospital_staff_as_a_string_linerts As String)
-        Log("Aktualizacja formularza: Personel")
+        Log("The Personel form is going to be updated")
         ' Check the program context and if correct update data ID
         If Not context_.TabSelected_ = Context.TabSelected.Staff Then
-            Log("IInfo: Kontekst: Personel - zmienił się")
+            Log("IInfo: Context: Personel - changed")
             Return
         End If
         context_.currHospitalStaff_.Parse(hospital_staff_as_a_string_linerts)
@@ -690,10 +690,10 @@ Public Class ElpisMainWindow
     End Sub
 
     Sub ITabItem6Visit_FillForm(ByVal visit_as_a_string_linerts As String)
-        Log("Aktualizacja formularza: Wizyta")
+        Log("Card actualization: Visit")
         ' Check the program context and if correct update data ID
         If Not context_.TabSelected_ = Context.TabSelected.Visit Then
-            Log("Info: Kontekst: Wizyta - zmienił się")
+            Log("Info: Context: Visit - changed")
             Return
         End If
         context_.currVisit_.Parse(visit_as_a_string_linerts)
@@ -702,10 +702,10 @@ Public Class ElpisMainWindow
     End Sub
 
     Sub ITabItem7LabTest_FillForm(ByVal visit_as_a_string_linerts As String)
-        Log("Aktualizacja formularza: Test")
+        Log("The Test form is going to be updated")
         ' Check the program context and if correct update data ID
         If Not context_.TabSelected_ = Context.TabSelected.LabTest Then
-            Log("Info: Kontekst: Test zmienił się")
+            Log("Info: Context: Test changed")
             Return
         End If
         context_.currLabTest_.Parse(visit_as_a_string_linerts)
@@ -715,10 +715,10 @@ Public Class ElpisMainWindow
 
     ' SINCE 2017-07-05
     Sub ITabItem8Duty_FillForm(ByVal duty_as_a_string_linerts As String)
-        Log("Aktualizacja formularza: Dyżur")
+        Log("Card actualization: Shift")
         ' Check the program context and if correct update data ID
         If Not context_.TabSelected_ = Context.TabSelected.Duty Then
-            Log("Info: Kontekst: Dyżur zmienił się")
+            Log("Info: Context: Shift changed")
             Return
         End If
         context_.currDuty_.Parse(duty_as_a_string_linerts)
@@ -901,89 +901,89 @@ Public Class ElpisMainWindow
     End Sub
 
     Sub ITabItem2Ward_Update()
-        Log("Info: Aktaulzacja wpisu oddziału")
+        Log("Info: Entry update: ward")
         ITabItem2Ward_UpdateContextWardFromForm()
         If context_.currWard_.IsInitialized Then
             Dim querry As String = context_.currWard_.FormQuerry_Update()
-            Log("Info: Zaktualizowano informacje o oddziale " & context_.currWard_.Get_f_Name)
+            Log("Info: The department data were updated" & context_.currWard_.Get_f_Name)
             Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(querry)
             result.Clear()
             result.Dispose()
         Else
-            Log("Błąd: Nie można zaktualizować danych oddziale - brak wybranego oddziału.")
+            Log("Error: It cannot be updated department - not selected")
         End If
     End Sub
 
     Sub ITabItem3Room_Update()
-        Log("Info: Aktaulzacja wpisu sali")
+        Log("Info: Entry update: room")
         ITabItem3Room_UpdateContextRoomFromForm()
         If context_.currRoom_.IsInitialized Then
             Dim querry As String = context_.currRoom_.FormQuerry_Update()
-            Log("Info: Zaktualizowano informacje o sali " & context_.currRoom_.Get_f_number)
+            Log("Info: The Room entry was updated: " & context_.currRoom_.Get_f_number)
             Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(querry)
             result.Clear()
             result.Dispose()
         Else
-            Log("Błąd: Nie można zaktualizować danych sali - brak wybranej sali.")
+            Log("Error: It cannot be updated room - not selected room.")
         End If
     End Sub
 
     Sub ITabItem4Personel_Update()
-        Log("Info: Aktaulzacja wpisu personelu")
+        Log("Info: Entry update personelu")
         ITabItem4Personel_UpdateContextHospitalStuffFromForm()
         If context_.currHospitalStaff_.IsInitialized Then
             Dim querry As String = context_.currHospitalStaff_.FormQuerry_Update()
-            Log("Info: Zaktualizowano informacje o sali " & context_.currHospitalStaff_.Get_f_fullname)
+            Log("Info: The Room entry is updated" & context_.currHospitalStaff_.Get_f_fullname)
             Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(querry)
             result.Clear()
             result.Dispose()
         Else
-            Log("Błąd: Nie można zaktualizować danych sali - brak wybranej sali.")
+            Log("Error: The data cannot be updated - room not selected.")
         End If
     End Sub
 
 
     Sub ITabItem5Patient_Update()
-        Log("Info: Aktaulzacja wpisu pacjenta")
+        Log("Info: Update the Patient entry")
     End Sub
 
     Sub ITabItem6Visit_Update()
-        Log("Info: Aktaulzacja wpisu wizyty")
+        Log("Info: Entry update visits")
         ITabItem6Visit_UpdateContextVisitFromForm()
         If context_.currVisit_.IsInitialized Then
             Dim querry As String = context_.currVisit_.FormQuerry_Update()
-            Log("Info: Zaktualizowano informacje o wizycie " & context_.currVisit_.Get_f_Id)
+            Log("Info: Data updated wizycie " & context_.currVisit_.Get_f_Id)
             Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(querry)
             result.Clear()
             result.Dispose()
         Else
-            Log("Błąd: Nie można zaktualizować danych - brak wybranej wizyty.")
+            Log("Error: It cannot be updated - not selected visits.")
         End If
     End Sub
 
     Sub ITabItem7LabTest_Update()
-        Log("Info: Aktaulzacja wpisu wizyty")
+        Log("Info: Entry update visits")
         ITabItem7LabTest_UpdateContextLabTestFromForm()
         If context_.currLabTest_.IsInitialized Then
             Dim querry As String = context_.currLabTest_.FormQuerry_Update()
-            Log("Info: Zaktualizowano informacje o wizycie " & context_.currLabTest_.Get_f_Id)
+            Log("Info: Data updated visit " & context_.currLabTest_.Get_f_Id)
             Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(querry)
             result.Clear()
             result.Dispose()
         Else
-            Log("Błąd: Nie można zaktualizować danych - brak wybranego badania.")
+            Log("Error: It cannot be updated - not selected test.")
         End If
     End Sub
 
     Sub ITabItem8Duty_Update()
-        Log("Info: Aktaulzacja wpisu dużyru")
+        Log("Info: Entry update Shift")
         ITabItem8Duty_UpdateContextDutyFromForm()
         If context_.currDuty_.IsInitialized Then
             Dim querry As String = context_.currDuty_.FormQuerry_Update()
-            Log("Info: Zaktualizowano informacje o dyżurze.")
+            Log("Info: Data updated Shiftze.")
             Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(querry)
         Else
-            Log("Błąd: Nie można zaktualizować danych - brak odpowiedniego dyżuru.")
+            Log("Error: It cannot be updated - not selected Shift.")
         End If
     End Sub
     ' UPDATE FORM METHODS - 
@@ -995,7 +995,7 @@ Public Class ElpisMainWindow
 
         If Not context_.TabSelected_ = Context.TabSelected.Ward Or context_.contextID_ < 0 Then
             'Log("ITabItem2Ward_Delete: no data avaialbe to be deleted")
-            Log("Błąd: Nie można wykonać operacji usunięcia oddziału - żaden nie został wybrany.")
+            Log("Error: Cannot delete synmar.plu - żaden nie został wybrany.")
             Return
         End If
         ' Prepare Delete querry
@@ -1003,7 +1003,7 @@ Public Class ElpisMainWindow
         Dim deleteQuerry As String = context_.currWard_.FormQuerry_Delete()
         Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(deleteQuerry)
         If Not result.HasErrors Then
-            Log("Info: Usunięto informacje o oddziale z bazie danych. Odśwież widok by mieć aktualny.")
+            Log("Info: Deleted info  department from database. Refresh view.")
         End If
         result.Clear()
         result.Dispose()
@@ -1014,7 +1014,7 @@ Public Class ElpisMainWindow
         ' Check the program context and if correct update data ID
 
         If Not context_.TabSelected_ = Context.TabSelected.Room Or context_.contextID_ < 0 Then
-            Log("Błąd: Nie można wykonać operacji usunięcia sali - żadna nie została wybrana.")
+            Log("Error: Cannot delete room -  not selected.")
             Return
         End If
         ' Prepare Delete querry
@@ -1023,7 +1023,7 @@ Public Class ElpisMainWindow
         Dim deleteQuerry As String = context_.currRoom_.FormQuerry_Delete()
         Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(deleteQuerry)
         If Not result.HasErrors Then
-            Log("Info: Usunięto informacje o sali z bazy danych. Odśwież widok by mieć aktualny.")
+            Log("Info: Deleted info room from database. Refresh view.")
         End If
         result.Clear()
         result.Dispose()
@@ -1032,7 +1032,7 @@ Public Class ElpisMainWindow
     Sub ITabItem4Personel_Delete()
         Log("ITabItem4Personel_Delete")
         If Not context_.TabSelected_ = Context.TabSelected.Staff Or context_.contextID_ < 0 Then
-            Log("Błąd: Nie można wykonać operacji usunięcia wpisu Pracownika - pozycja nie została wybrana.")
+            Log("Error: Cannot delete personnel - record not selected.")
             Return
         End If
         ' Prepare Delete querry
@@ -1041,27 +1041,27 @@ Public Class ElpisMainWindow
         Dim deleteQuerry As String = context_.currHospitalStaff_.FormQuerry_Delete()
         Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(deleteQuerry)
         If Not result.HasErrors Then
-            Log("Info: Usunięto informacje o pracowniku z bazy danych. Odśwież widok by mieć aktualny.")
+            Log("Info: Deleted info on personnel from database. Refresh view.")
         End If
         result.Clear()
         result.Dispose()
     End Sub
 
     Sub ITabItem5Patient_Delete()
-        Log("Usunięcie wpisu pacjenta")
+        Log("Delete record patient")
     End Sub
 
     Sub ITabItem6Visit_Delete()
-        Log("Usunięcie wizyty")
+        Log("delete visits")
         If Not context_.TabSelected_ = Context.TabSelected.Visit Or context_.contextID_ < 0 Then
-            Log("Błąd: Nie można wykonać operacji usunięcia wpisu wizyty - pozycja nie została wybrana.")
+            Log("Error: Cannot delete  visits - record not selected.")
             Return
         End If
         ITabItem6Visit_UpdateContextVisitFromForm()
         Dim deleteQuerry As String = context_.currVisit_.FormQuerry_Delete()
         Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(deleteQuerry)
         If Not result.HasErrors Then
-            Log("Info: Usunięto informacje o wizycie z bazy danych. Odśwież widok by mieć aktualny.")
+            Log("Info: Deleted info on visit from database. Refresh view.")
         End If
         result.Clear()
         result.Dispose()
@@ -1070,14 +1070,14 @@ Public Class ElpisMainWindow
     Sub ITabItem7LabTest_Delete()
         Log("ITabItem7LabTest_Delete")
         If Not context_.TabSelected_ = Context.TabSelected.LabTest Or context_.contextID_ < 0 Then
-            Log("Błąd: Nie można wykonać operacji usunięcia badania - pozycja nie została wybrana.")
+            Log("Error: Cannot delete test - record not selected.")
             Return
         End If
         'ITabItem7LabTest_UpdateContextLabTestFromForm() ' TODO Odkomentuj
         Dim deleteQuerry As String = context_.currLabTest_.FormQuerry_Delete()
         Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(deleteQuerry)
         If Not result.HasErrors Then
-            Log("Info: Usunięto informacje o badaniu z bazy danych. Odśwież widok by mieć aktualny.")
+            Log("Info: Deleted info on test from database. Refresh view.")
         End If
         result.Clear()
         result.Dispose()
@@ -1085,40 +1085,40 @@ Public Class ElpisMainWindow
 
 
     Sub ITabItem8Duty_Delete()
-        Log("Usunięcie dyżuru")
+        Log("Delete: Shift entry")
         If Not context_.TabSelected_ = Context.TabSelected.Duty Or context_.contextID_ < 0 Then
-            Log("Błąd: Nie można wykonać operacji usunięcia dyżuru - pozycja nie została wybrana.")
+            Log("Error: Cannot delete the entry Shift - record not selected.")
             Return
         End If
         ITabItem8Duty_UpdateContextDutyFromForm()
         Dim deleteQuerry As String = context_.currDuty_.FormQuerry_Delete()
         Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(deleteQuerry)
         If Not result.HasErrors Then
-            Log("Info: Usunięto informacje o dyżurze z bazy danych. Odśwież widok by mieć aktualny.")
+            Log("Info: Deleted info on Shift from database. Refresh view.")
         End If
         result.Clear()
         result.Dispose()
     End Sub
 
     Sub ITabItem2Ward_New()
-        Log("Info: Dodanie nowego oddziału")
+        Log("Info: New ward entry adding")
         ITabItem2Ward_UpdateContextWardFromForm()
         ' Jesli jest ok to pobierz wolny identyfikator.
         Dim next_free_d_id As Integer = My.Application.DatabaseSqliteInterface_.GetNextFreeIndexForTable(context_.currWard_.Get_TableName())
         If next_free_d_id < 0 Then
-            Log("Błąd: Nie można znaleźć poprawnego ID - baza danych może być uszkodzona. Operacja anulowana.")
+            Log("Error: Cannot find proper ID - cancelled action.")
             Return
         End If
         If (context_.currWard_.Get_f_Id > -1) And (Not context_.currWard_.Get_f_Name = String.Empty) Then
             Dim insertQuerry As String = context_.currWard_.FormQuerry_Insert()
             Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(insertQuerry)
             If Not result.HasErrors Then
-                MsgBox("Info: Zapisano nowy oddział w bazie danych: " & context_.currWard_.Get_f_Name)
+                MsgBox("Info: New ward saved in the database: " & context_.currWard_.Get_f_Name)
             End If
             result.Clear()
             result.Dispose()
         Else
-            MsgBox("Błąd: Nie można utworzyć zapisu o nowym oddziale w bazie danych. ID Oddziału oraz jego nazwa muszą być zdefiniowane.")
+            MsgBox("Error: cannot add New department in database. ID synmar.plu and name must be defined.")
         End If
 
     End Sub
@@ -1130,7 +1130,7 @@ Public Class ElpisMainWindow
         ' Jesli jest ok to pobierz wolny identyfikator.
         Dim next_free_d_id As Integer = My.Application.DatabaseSqliteInterface_.GetNextFreeIndexForTable(context_.currRoom_.Get_TableName())
         If next_free_d_id < 0 Then
-            Log("Błąd: Nie można znaleźć poprawnego ID - baza danych może być uszkodzona. Operacja anulowana.")
+            Log("Error: Cannot find proper ID - action cancelled.")
             Return
         End If
         'Here and in next methdos: With Get_f_Id comparation explicit mismatch. TODO: Check this and fix!
@@ -1138,12 +1138,12 @@ Public Class ElpisMainWindow
             Dim insertQuerry As String = context_.currRoom_.FormQuerry_Insert()
             Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(insertQuerry)
             If Not result.HasErrors Then
-                MsgBox("Info: Zapisano nową salę w bazie danych: " & context_.currRoom_.Get_f_number)
+                MsgBox("Info: New room entry saved in the database: " & context_.currRoom_.Get_f_number)
             End If
             result.Clear()
             result.Dispose()
         Else
-            MsgBox("Błąd: Nie można utworzyć zapisu o nowej sali w bazie danych. ID Sali oraz jej typ muszą być zdefiniowane.")
+            MsgBox("Error: cannot add new room in database. ID room and type must be defined")
         End If
     End Sub
 
@@ -1155,93 +1155,93 @@ Public Class ElpisMainWindow
         ' Jesli jest ok to pobierz wolny identyfikator.
         Dim next_free_d_id As Integer = My.Application.DatabaseSqliteInterface_.GetNextFreeIndexForTable(context_.currHospitalStaff_.Get_TableName())
         If next_free_d_id < 0 Then
-            Log("Błąd: Nie można znaleźć poprawnego ID - baza danych może być uszkodzona. Operacja anulowana.")
+            Log("Error: Cannot find proper ID -  action cancelled.")
             Return
         End If
         If (context_.currHospitalStaff_.Get_f_Id > -1) And (Not context_.currHospitalStaff_.Get_f_Type = String.Empty) Then
             Dim insertQuerry As String = context_.currHospitalStaff_.FormQuerry_Insert()
             Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(insertQuerry)
             If Not result.HasErrors Then
-                MsgBox("Info: Zapisano nową pozycję Personel w bazie danych: " & context_.currHospitalStaff_.Get_f_fullname)
+                MsgBox("Info: New Personel entry added to the database: " & context_.currHospitalStaff_.Get_f_fullname)
             End If
             result.Clear()
             result.Dispose()
         Else
-            MsgBox("Błąd: Nie można utworzyć zapisu o nowej sali w bazie danych. ID Sali oraz jej typ muszą być zdefiniowane.")
+            MsgBox("Error: cannot add new room in database. ID room and type must be defined")
         End If
     End Sub
 
     ' SINCE 2017-07-05
     Sub ITabItem6Visit_New()
-        Log("Utworzenie nowej wizyty")
+        Log("New visit entry is created")
         ITabItem6Visit_UpdateContextVisitFromForm()
         ' Jesli jest ok to pobierz wolny identyfikator.
         Dim next_free_d_id As Integer = My.Application.DatabaseSqliteInterface_.GetNextFreeIndexForTable(context_.currVisit_.Get_TableName())
         If next_free_d_id < 0 Then
-            Log("Błąd: Nie można znaleźć poprawnego ID - baza danych może być uszkodzona. Operacja anulowana.")
+            Log("Error: Cannot find proper ID -  action cancelled.")
             Return
         End If
         If (context_.currVisit_.Get_f_Id > -1) And (Not context_.currVisit_.Get_f_Date_In = String.Empty) Then
             Dim insertQuerry As String = context_.currVisit_.FormQuerry_Insert()
             Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(insertQuerry)
             If Not result.HasErrors Then
-                MsgBox("Info: Zapisano nową wizytę w bazie danych: " & context_.currVisit_.Get_f_Id)
+                MsgBox("Info: New visit saved in the database: " & context_.currVisit_.Get_f_Id)
             End If
             result.Clear()
             result.Dispose()
         Else
-            MsgBox("Błąd: Nie można utworzyć zapisu o nowej sali w bazie danych. ID Sali oraz jej typ muszą być zdefiniowane.")
+            MsgBox("Error: cannot add new room in database. ID room and type must be defined")
         End If
     End Sub
 
     ' SINCE 2017-07-05
     Sub ITabItem7LabTest_New()
-        Log("Utworzenie nowego wpisu o badaniu")
+        Log("Creating new entry test")
         ITabItem7LabTest_UpdateContextLabTestFromForm()
         ' Jesli jest ok to pobierz wolny identyfikator.
         Dim next_free_d_id As Integer = My.Application.DatabaseSqliteInterface_.GetNextFreeIndexForTable(context_.currLabTest_.Get_TableName())
         If next_free_d_id < 0 Then
-            Log("Błąd: Nie można znaleźć poprawnego ID - baza danych może być uszkodzona. Operacja anulowana.")
+            Log("Error: Cannot find proper ID - action cancelled.")
             Return
         End If
         If (context_.currLabTest_.Get_f_Id > -1) And (Not context_.currLabTest_.Get_f_Patient_Id = String.Empty) Then
             Dim insertQuerry As String = context_.currLabTest_.FormQuerry_Insert()
             Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(insertQuerry)
             If Not result.HasErrors Then
-                MsgBox("Info: Zapisano nowe badanie w bazie danych: " & context_.currLabTest_.Get_f_Id)
+                MsgBox("Info: Saved new test in the database: " & context_.currLabTest_.Get_f_Id)
             End If
             result.Clear()
             result.Dispose()
         Else
-            MsgBox("Błąd: Nie można utworzyć zapisu o nowym badaniu w bazie danych. ID badania oraz pacjenta muszą być zdefiniowane.")
+            MsgBox("Error: cannot add new test in database. ID test and patient must be defined")
         End If
     End Sub
 
     Sub ITabItem8Duty_New()
-        Log("Utworzenie nowego wpisu dużur")
+        Log("Creating new entry shift")
         ITabItem8Duty_UpdateContextDutyFromForm()
         ' Jesli jest ok to pobierz wolny identyfikator.
         Dim next_free_d_id As Integer = My.Application.DatabaseSqliteInterface_.GetNextFreeIndexForTable(context_.currDuty_.Get_TableName())
         If next_free_d_id < 0 Then
-            Log("Błąd: Nie można znaleźć poprawnego ID - baza danych może być uszkodzona. Operacja anulowana.")
+            Log("Error: Cannot find proper ID - action cancelled.")
             Return
         End If
         If (Not context_.currDuty_.Get_f_Date = String.Empty) And (Not context_.currDuty_.Get_f_Personel_Id = String.Empty) Then
             Dim insertQuerry As String = context_.currDuty_.FormQuerry_Insert()
             Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(insertQuerry)
             If Not result.HasErrors Then
-                MsgBox("Info: Zapisano nowy dyżur w bazie danych: data:" & context_.currDuty_.Get_f_Date & ", ID personelu " & context_.currDuty_.f_personel_id_)
+                MsgBox("Info: Saved new Shift in the database: data:" & context_.currDuty_.Get_f_Date & ", ID personelu " & context_.currDuty_.f_personel_id_)
             End If
             result.Clear()
             result.Dispose()
         Else
-            MsgBox("Błąd: Nie można utworzyć zapisu o nowym dyżurze w bazie danych. Data oraz ID personelu muszą być zdefiniowane.")
+            MsgBox("Error: cannot add nw Shift to the database. Data and ID personelu must be defined")
         End If
     End Sub
 
     Private Sub MIF_Save_Click(sender As Object, e As RoutedEventArgs) Handles MIF_Save.Click
         My.Application.SaveConfigurationPersistently()
-        Log("Zapisano ustawienia")
+        Log("Settings saved")
     End Sub
 
     Private Sub buttonMenExportData_Click(sender As Object, e As RoutedEventArgs) Handles buttonMenExportData.Click
@@ -1250,7 +1250,7 @@ Public Class ElpisMainWindow
     End Sub
 
     Sub ExportAllData()
-        Log("Info: Eksportowanie danych...")
+        Log("Info: Data exporting...")
         Dim current_directory = Directory.GetCurrentDirectory()
         Dim location_of_exported_data = current_directory & "\" & My.Application.config_.SettingsDirectoryWhereExportedDataGoes_
         My.Application.dataExporter_.ExportAllTables(location_of_exported_data)
