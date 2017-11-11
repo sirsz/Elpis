@@ -10,7 +10,7 @@
 
     <Grid>
         <chartingToolkit:Chart Height="Auto" HorizontalAlignment="Stretch" 
-                               Name="columnChart" Title="Wskaźnik ryzyk wizyt" 
+                               Name="columnChart" Title="Risk of the vists index" 
                                Width="Auto" Margin="10">
             <chartingToolkit:ColumnSeries x:Name="columnSeries" DependentValuePath="Value" IndependentValuePath="Key" />
         </chartingToolkit:Chart>
