@@ -1,0 +1,35 @@
+'#Reference {BE35B7EB-0D00-44D8-B3A5-0727DF5AD7C1}#1.0#0#
+'#Reference {C9E29001-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Language "WWB-COM"
+
+Option Explicit
+
+
+Sub Main
+	Dim MRSA As Spreadsheet
+
+	Dim sorted_ill As Spreadsheet
+	Set MRSA=Spreadsheets.New
+	MRSA.SetSize(7,202)
+	Set sorted_ill=Spreadsheets.Open("D:\MRSA\zliczenia_kli_121.sta")
+	Dim HowMany As Long
+	Dim j As Long
+	Dim Pick As Long
+
+
+	For j=2 To sorted_ill.NumberOfCases
+		MRSA.Value(sorted_ill.Value(j,3),sorted_ill.Value(j,1))=sorted_ill.Value(j,2)
+
+	Next
+	MRSA.Visible=True
+
+	
+End Sub
+
+'STATISTICA MACRO FILE VERSION 4
+'BEGINPROPERTIES
+'NAME=dopasowanie_typu
+'DESCRIPTION=
+'LANGUAGE=0
+'SCRIPTING=0
+'ENDPROPERTIES

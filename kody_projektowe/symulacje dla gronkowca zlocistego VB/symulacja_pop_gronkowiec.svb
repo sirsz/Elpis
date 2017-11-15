@@ -1,0 +1,109 @@
+'#Reference {04B00066-9D98-4C04-8BAF-5E1178BAEEE6}#1.0#0#
+'#Reference {C9E29036-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Reference {C9E29025-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Reference {C9E29002-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Reference {BE35B7EB-0D00-44D8-B3A5-0727DF5AD7C1}#1.0#0#
+'#Reference {C9E29001-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'symulacja monte carlo
+Option Base 1
+
+Sub Main
+	Dim Rs_inf As Spreadsheet
+	Dim Rs_who As Spreadsheet
+	Dim contacts As Spreadsheet
+	Dim patient As Spreadsheet
+
+	Dim macierz_pol As Spreadsheet
+	Set macierz_pol=Spreadsheets.New
+	macierz_pol.SetSize(zakazeni,zakazeni)
+
+	Dim lista As Spreadsheet
+	Set lista=Spreadsheets.New
+	lista.SetSize(1,zakazeni)
+	Dim n As Long
+
+
+	Dim zakazeni As Long 'liczba wszystkich zagrozonych zakazeniem
+	Dim n_w As Long
+	Dim okresy As Long 'uszeregowane od 1... dni/tygodni zagregowanych okresow infomacji o kontaktach
+	Dim j As Double
+	Dim k As Long
+	Dim i As Long
+    Dim los As Long
+	For i=1 To zakazeni
+		lista.Value(1,i)=0
+		For j=1 To zakazeni
+			macierz_pol.Value(j,i)=0
+
+		Next j
+	Next i
+	Dim sr_per_os As Double
+	Dim i_str As String
+	Dim plik As String
+	Dim plik_kli As String
+	Dim plik2 As String
+	Dim help_n_w As Double
+
+	Set Rs_who = Spreadsheets.New
+	Set patient=Spreadsheets.Open("D:\mrsa\lnPe_day.sta")
+
+	Rs_who.SetSize(okresy,zakazeni)
+	help_n_w=Log(0.25)
+	n_w= help_n_w/6
+
+	s=1
+	sr_per_os=5.81839956518501
+	For k=1 To 20
+
+		Set Rs_inf = Spreadsheets.New
+		Rs_inf.SetSize(okresy,zakazeni)
+		Rs_inf.Value(1,141)=1 'pacjent zerowy
+	For n=1 To okresy -1
+		plik = "D:\mrsa\mrsa"
+		i_str=CStr(n)
+		plik2 = plik + i_str
+		plik=plik2 + "_mat.sta"
+		Set contacts=Spreadsheets.Open(plik)
+		plik_kli=plik2 + "n2.sta"
+		Set contacts_kli=Spreadsheets.Open(plik_kli)
+		For i=1 To zakazeni
+			If Rs_inf.Value(n,i)<>1 Then
+				j=1
+				While (Rs_inf.Value(n+1,i)<>1 And j<zakazeni)
+					los= Round((zakazeni-1)*Rnd()+0.5)
+					If contacts_kli.Value(i,los)<>0 Then
+						If Rnd()<(1-Exp(-contacts_kli.Value(i,los)*s/2) Or  Rnd()<1-Exp(-contacts.Value(i,los)*s))  Then
+							Rs_inf.Value(n+1,i)=1
+							Rs_who.Value(n+1,i)=los
+							macierz_pol.Value(los,i)= macierz_pol.Value(los,i)+1
+							lista.Value(1,i)=lista.Value(1,i)+n
+						End If
+					End If
+					j=j+1
+				Wend
+
+				If 	Rs_inf.Value(n+1,i)<>1 And Rnd()<1-Exp(-0.04*patient.Value(i,n)/sr_per_os) Then
+					Rs_inf.Value(n+1,i)=1
+					Rs_who.Value(n+1,i)=0
+					lista.Value(1,i)=lista.Value(1,i)+n
+				End If
+			Else
+				Rs_inf.Value(n+1,i)=1
+			End If
+
+		Next i
+	Next n
+	Next k
+	macierz_pol.Visible=True 'lista transmisji
+	'Rs_inf.Visible=True
+	Rs_who.Visible=True 'czasy transmisji
+	lista.Visible=True
+End Sub
+
+'STATISTICA MACRO FILE VERSION 4
+'BEGINPROPERTIES
+'NAME=symulacja_pop_gronkowiec
+'DESCRIPTION=
+'LANGUAGE=0
+'SCRIPTING=0
+'ENDPROPERTIES

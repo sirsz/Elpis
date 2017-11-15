@@ -1,0 +1,120 @@
+'#Reference {04B00066-9D98-4C04-8BAF-5E1178BAEEE6}#1.0#0#
+'#Reference {C9E29036-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Reference {C9E29025-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Reference {C9E29002-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Reference {BE35B7EB-0D00-44D8-B3A5-0727DF5AD7C1}#1.0#0#
+'#Reference {C9E29001-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Language "WWB-COM"
+Option Base 1
+
+Sub Main
+	Dim macierz_pol As Spreadsheet
+	Dim macierz As Spreadsheet
+	Set macierz=Spreadsheets.Open("lista.sta")
+	' wczysujemy liste zakazen
+	Set macierz_pol=Spreadsheets.New
+
+	Dim zakazeni As Long 'liczba wszystkich zagrozonych zakazeniem
+	zakazeni=zakazeni
+	macierz_pol.SetSize(zakazeni,zakazeni)
+'	Dim hierarchia As Spreadsheet
+'	Set hierarchia=Spreadsheets.New
+'	hierarchia.SetSize(145,500)
+	Dim macierz_pol_h As Spreadsheet
+	Set macierz_pol_h=Spreadsheets.New
+	macierz_pol_h.SetSize(zakazeni,100)
+'
+'	Dim macierz_pol_czas As Spreadsheet
+'	Set macierz_pol_czas=Spreadsheets.New
+'	macierz_pol_czas.SetSize(zakazeni,100)
+
+
+	Dim sorty_poz As Spreadsheet
+	Set sorty_poz=Spreadsheets.New
+	sorty_poz.SetSize(zakazeni,2)
+
+	Dim sorty As Spreadsheet
+	Set sorty=Spreadsheets.New
+	sorty.SetSize(zakazeni,3)
+	Dim j As Long
+    Dim level As Long
+    Dim suma As Double
+    Dim level2 As Long
+    Dim k As Long
+    Dim start As Long
+    Dim kryt As Long
+    Dim por As Long
+    Dim los As Double
+    Dim h As Long
+
+
+    Dim wektor(zakazeni) As Double
+	Dim i As Long
+	Dim por_los As Double
+	For i=1 To zakazeni
+		For j=1 To zakazeni
+			macierz_pol.Value(j,i)=0
+		Next j
+	Next i
+	h=1
+	For m=1 To 1
+	'start=macierz(m,13)
+	'level=start
+	For i=1 To zakazeni
+		sorty.Value(i,1)=i
+		sorty.Value(i,2)=-macierz.Value(m,i)
+		sorty_poz.Value(i,1)=i
+		sorty_poz.Value(i,2)=macierz.Value(m,i)
+	Next i
+	sorty.SortData(2)
+	sorty_poz.SortData(2)
+	For k=1 To 10
+	For i=1 To 290
+		los=Rnd()
+		por=sorty.Value(zakazeni-i,1)
+		suma=0
+		For j=1 To i
+			If (sorty.Value(292-j,2)-sorty.Value(zakazeni-i,2))<>0 Then
+				wektor(292 - j)=Abs(1/(sorty.Value(292-j,2) -sorty.Value(zakazeni-i,2))) 'wyznaczanie prawdopodobienstw przylaczenia termicznego
+			Else
+				wektor(292 - j)=0
+			End If
+			suma=suma+wektor(292- j)
+			sorty.Value(292-j,3)=wektor(292-j)
+		Next j
+		j=1
+		por_los= wektor(292-j)/suma
+		kryt=0
+		While 0=kryt
+			If los<por_los Then
+				level=sorty_poz.Value(j,1)
+				kryt=1
+			Else
+				j=j+1
+				por_los=por_los+wektor(292-j)/suma
+			End If
+		Wend
+		'level=sorty_poz.Value(los,1)
+		'sorty.SetSize(12-i,2)
+		macierz_pol.Value(level,por)=1 + macierz_pol.Value(level,por) 'zliczanie powtorzen linkow
+		macierz_pol_h.Value(por,k)=level
+		'macierz_pol_czas.Value(por,k)=i
+'		hierarchia.Value(level*12-por+1,h)=i
+	Next i
+	h=h+1
+	Next k
+
+	Next m
+	'macierz_pol_czas.Visible=True
+	macierz_pol_h.Visible=True
+	macierz_pol.Visible=True
+
+End Sub
+
+'STATISTICA MACRO FILE VERSION 4
+'BEGINPROPERTIES
+'NAME=termiczne
+'DESCRIPTION=
+'LANGUAGE=0
+'SCRIPTING=0
+'ENDPROPERTIES

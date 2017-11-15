@@ -1,0 +1,60 @@
+'#Reference {04B00066-9D98-4C04-8BAF-5E1178BAEEE6}#1.0#0#
+'#Reference {C9E29036-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Reference {C9E29025-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Reference {C9E29002-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Reference {BE35B7EB-0D00-44D8-B3A5-0727DF5AD7C1}#1.0#0#
+'#Reference {C9E29001-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'wyznaczanie ryzyka zaka¿enia operacyjnego na podstawie dlugosci opreacji, skoru ASA i czystosci pola
+
+Option Explicit
+
+Sub Main
+
+	Dim klinika As Spreadsheet
+	Set klinika=Spreadsheets.Open("zabiegi")
+	Dim index As Long
+	Dim i As Long
+	Dim Kontrola As Integer
+	For i=1 To dlugosc
+
+		klinika.Value(i,12)=0
+        If (klinika.Value(i,8) <1) Then
+        	klinika.Value(i,12)=1
+        End If
+        If (klinika.Value(i,14) <1 Or klinika.Value(i,14) >4) Then
+        	klinika.Value(i,12)=1
+        End If
+        If  klinika.Text(i,9)="c" Or klinika.Text(i,9)="c-s" Or klinika.Text(i,9)="s" Then
+        	Kontrola=1
+       		If Kontrola = 0 Then
+       			klinika.Value(i,12)=1
+       		End If
+        End If
+		If klinika.Value(i,12)=0 Then
+			index=0
+			If (klinika.Value(i,8) >40) Then
+        		index=index+1
+      	    End If
+      	    If  klinika.Value(i,14) >1 Then
+        		index=index+1
+        	End If
+        	If  klinika.Text(i,9)="s" Then
+        		index=index+1
+        	End If
+			klinika.Value(i,13)=index
+			Else
+				klinika.Value(i,13)=4
+		End If
+
+	Next i
+	klinika.Visible=True
+	
+End Sub
+
+'STATISTICA MACRO FILE VERSION 4
+'BEGINPROPERTIES
+'NAME=indeks_ryzyka_zmo
+'DESCRIPTION=
+'LANGUAGE=0
+'SCRIPTING=0
+'ENDPROPERTIES

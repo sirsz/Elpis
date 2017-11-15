@@ -1,0 +1,91 @@
+'#Reference {04B00066-9D98-4C04-8BAF-5E1178BAEEE6}#1.0#0#
+'#Reference {C9E29036-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Reference {C9E29025-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Reference {C9E29002-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Reference {BE35B7EB-0D00-44D8-B3A5-0727DF5AD7C1}#1.0#0#
+'#Reference {C9E29001-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Language "WWB-COM"
+Option Base 1
+
+Sub Main
+	Dim Rs_inf As Spreadsheet
+	Dim Rs_who As Spreadsheet
+	Dim contacts As Spreadsheet
+	Dim patient As Spreadsheet
+
+	Dim macierz_pol As Spreadsheet
+	Set macierz_pol=Spreadsheets.New
+	macierz_pol.SetSize(291,291)
+	Dim n As Long
+	Dim n_w As Long
+	Dim j As Double
+	Dim k As Long
+	Dim i As Long
+Dim los As Long
+	For i=1 To 291
+		For j=1 To 291
+			macierz_pol.Value(j,i)=0
+		Next j
+	Next i
+	Dim sr_per_os As Double
+	Dim i_str As String
+	Dim plik As String
+	Dim plik_kli As String
+	Dim plik2 As String
+	Dim help_n_w As Double
+	Set Rs_inf = Spreadsheets.New
+	Set Rs_who = Spreadsheets.New
+	Set patient=Spreadsheets.Open("lnPe_day.sta")
+	Rs_inf.SetSize(8,291)
+	Rs_who.SetSize(8,291)
+	help_n_w=Log(0.25)
+	n_w= help_n_w/6
+	Rs_inf.Value(1,141)=1
+	s=1
+	sr_per_os=5.81839956518501
+	For k=1 To 2000
+	For n=1 To 7
+		plik = "\mrsa"
+		i_str=CStr(n)
+		plik2 = plik + i_str
+		plik=plik2 + "_mat.sta"
+		Set contacts=Spreadsheets.Open(plik)
+		plik_kli=plik2 + "n2.sta"
+		Set contacts_kli=Spreadsheets.Open(plik_kli)
+		For i=1 To 291
+			If Rs_inf.Value(n,i)<>1 Then
+				For j=1 To 291
+					los= Round(290*Rnd()+0.5)
+					If contacts_kli.Value(i,los)<>0 Then
+						If Rnd()<1-Round(1000000*Rnd()+100000)*Exp(-contacts_kli.Value(i,los)*s) Or  (Rnd()<1-Round(1000000*Rnd()+100000)*Exp(-contacts.Value(i,los)*s) And contacts.Value(i,los)<>0) Then
+							Rs_inf.Value(n+1,i)=1
+							Rs_who.Value(n+1,i)=los
+							macierz_pol.Value(los,i)= macierz_pol.Value(los,i)+1
+
+						End If
+					End If
+				Next j
+
+				If 	Rs_inf.Value(n+1,i)<>1 And Rnd()<1-Round(1000000*Rnd()+100000)*Exp(-0.04*patient.Value(i,n)/sr_per_os) Then
+					Rs_inf.Value(n+1,i)=1
+					Rs_who.Value(n+1,i)=0
+				End If
+			Else
+				Rs_inf.Value(n+1,i)=1
+			End If
+
+		Next i
+	Next n
+	Next k
+	macierz_pol.Visible=True
+	'Rs_inf.Visible=True
+	'Rs_who.Visible=True
+End Sub
+
+'STATISTICA MACRO FILE VERSION 4
+'BEGINPROPERTIES
+'NAME=symulacja_swe
+'DESCRIPTION=
+'LANGUAGE=0
+'SCRIPTING=0
+'ENDPROPERTIES

@@ -1,0 +1,107 @@
+'#Reference {04B00066-9D98-4C04-8BAF-5E1178BAEEE6}#1.0#0#
+'#Reference {C9E29036-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Reference {C9E29025-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Reference {C9E29002-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Reference {BE35B7EB-0D00-44D8-B3A5-0727DF5AD7C1}#1.0#0#
+'#Reference {C9E29001-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'Program znajduje optymalny podzial znaczeniowy roznych obszarow prewencji zakazen
+
+
+Option Explicit
+Option Base 1
+Sub Main
+
+	Dim Rs As Spreadsheet
+	Dim Values() As Double
+	Dim Values2() As Double
+	Dim Count As Double
+	Dim VarList As Double
+	Dim i As Double
+	Dim CountValid As Double
+	Dim Results() As Variant
+	Dim Header As String
+	Dim HowMany As Long
+	Dim Pick() As Double
+	Dim Counter As Long
+	Dim korelacje As Spreadsheet
+	Set korelacje=Spreadsheets.Open("korelacje_pytania.sta")
+
+	'Variable selection
+	If (SelectVariables1(ActiveDataSet,"Values of a variable",1,1,VarList,Count, _
+		"Please select a variable")) = 0 Then
+		End
+	End If
+
+	'Array to hold the values of a variable
+	ReDim Preserve Values(ActiveDataSet.NumberOfCases) As Double
+	
+
+	'Read in the variables values into the above array
+	For i = 1 To ActiveDataSet.NumberOfCases
+		Values(i) = ActiveDataSet.Value(i,VarList)
+	Next i
+	Values2=Values
+	'Sort the values in the array
+	SortArrayAscending(Values2)
+
+	'Counter to count how many unique values are in the variable
+	HowMany = 1
+
+	'Loop to check uniqueness of values in variable
+	For Counter = 2 To ActiveDataSet.NumberOfCases
+			If (Values2(Counter) <> Values2(Counter - 1)) Then
+				HowMany = HowMany + 1
+			End If
+	Next Counter
+
+	'Initialize array to hold unique values in variable
+	ReDim Preserve Results(25,HowMany) As Variant
+	ReDim Preserve Pick(HowMany) As Double
+	For i = 1 To HowMany
+		Pick(i)=1
+	Next i
+
+	'If unique, Put them into the results array with their textlabel
+
+	For Counter = 1 To ActiveDataSet.NumberOfCases
+			Results(Pick(Values(Counter)), Values(Counter))=Counter
+			Pick(Values(Counter))=Pick(Values(Counter))+1
+	Next Counter
+
+	'Show the results
+	Set Rs = Spreadsheets.New
+	Rs.SetSize(25,25)
+
+	For i = 1 To 25
+		For Counter=1 To Pick(Values(i))-1
+			Rs.Value(i,Counter) = korelacje.Value(i,Results(Counter, Values(i)))
+		Next Counter
+	Next i
+
+	Rs.Visible=True
+
+End Sub
+
+Sub SortArrayAscending(ByRef Vector() As Double)
+
+	Dim i As Integer, Outer As Integer, Temp As Double
+	For Outer =  UBound(Vector()) - 1 To 1 Step -1
+		For i = 1 To Outer
+			'ascending order (low-high)
+			If Vector(i) > Vector(i + 1) Then
+				Temp = Vector(i + 1)
+				Vector(i + 1) = Vector(i)
+				Vector(i) = Temp
+			End If
+		Next i
+	Next Outer
+
+End Sub
+
+'STATISTICA MACRO FILE VERSION 4
+'BEGINPROPERTIES
+'NAME=policz_kary
+'DESCRIPTION=
+'LANGUAGE=0
+'SCRIPTING=0
+'ENDPROPERTIES

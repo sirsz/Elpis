@@ -1,0 +1,74 @@
+'#Reference {BE35B7EB-0D00-44D8-B3A5-0727DF5AD7C1}#1.0#0#
+'#Reference {C9E29001-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Analiza przyk³adowego ogniska z 18 zakazonymi pacjentami
+
+Option Base 1
+
+Sub Main
+	Dim macierz_pol As Spreadsheet
+	Dim macierz As Spreadsheet
+	Set macierz=Spreadsheets.Open("macierz_czasy_dojscia.sta")
+	Set macierz_pol=Spreadsheets.New
+	macierz_pol.SetSize(4,18)
+
+	Dim sorty_poz As Spreadsheet
+	Set sorty_poz=Spreadsheets.New
+	sorty_poz.SetSize(18,2)
+
+	Dim sorty As Spreadsheet
+	Set sorty=Spreadsheets.New
+	sorty.SetSize(18,2)
+	Dim j As Long
+    Dim level As Long
+    Dim level2 As Long
+    Dim start As Long
+    Dim por As Long
+    Dim los As Long
+    start=1
+    level=start
+    macierz_pol.Value(1,start)=13
+    macierz_pol.Value(2,1)=start
+    macierz_pol.Value(3,1)=macierz.Value(start,start)
+    macierz_pol.Value(4,1)=macierz.Value(start,start)-0
+
+
+    Dim wektor(18) As Integer
+	Dim i As Long
+
+	For i=1 To 18
+		sorty.Value(i,1)=i
+		sorty.Value(i,2)=-macierz.Value(i,i)
+		sorty_poz.Value(i,1)=i
+		sorty_poz.Value(i,2)=macierz.Value(i,i)
+	Next i
+	sorty.SortData(2)
+	sorty_poz.SortData(2)
+	For i=1 To 17
+		los=Round(i*Rnd()+1)
+		por=sorty.Value(18-i,1)
+
+		' If (macierz.Value(por,por)>=macierz.Value(level,level))  Then
+		' macierz_pol.Value(1,por)=level
+		' level=por
+		' End If
+		level=sorty_poz.Value(los,1)
+		'sorty.SetSize(12-i,2)
+		macierz_pol.Value(1,por)=level
+		macierz_pol.Value(2,i+1)=por
+   		macierz_pol.Value(3,i+1)=macierz.Value(por,por)
+   		macierz_pol.Value(4,i+1)=macierz.Value(por,level)
+		level=por
+
+	Next i
+	sorty.Visible=True
+	macierz_pol.Visible=True
+
+End Sub
+
+'STATISTICA MACRO FILE VERSION 4
+'BEGINPROPERTIES
+'NAME=czasy_dojscia_ryzyko
+'DESCRIPTION=
+'LANGUAGE=0
+'SCRIPTING=0
+'ENDPROPERTIES

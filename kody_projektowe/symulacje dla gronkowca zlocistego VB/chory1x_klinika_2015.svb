@@ -1,0 +1,106 @@
+'#Reference {04B00066-9D98-4C04-8BAF-5E1178BAEEE6}#1.0#0#
+'#Reference {C9E29036-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Reference {C9E29025-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Reference {C9E29002-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'#Reference {BE35B7EB-0D00-44D8-B3A5-0727DF5AD7C1}#1.0#0#
+'#Reference {C9E29001-3D45-11D4-9FF4-00C04FA0D540}#1.0#0#
+'This program will generate a spreadsheet which provides the unique values
+
+
+Option Explicit
+Option Base 1
+Sub Main
+
+	Dim Rs As Spreadsheet
+	Dim MRSA As Spreadsheet
+	Dim sorted As Spreadsheet
+	Dim sorted_ill As Spreadsheet
+	Dim inpatient As Spreadsheet
+	Dim Values() As Double
+
+	Dim Count As Double
+
+	Dim i As Double
+	Dim j As Double
+	Dim CountValid As Double
+	Dim Results() As Variant
+	Dim Header As String
+	Dim HowMany As Long
+	Dim Pick As Long
+	Dim Counter As Double
+	Dim cheker1 As Long
+	Dim cheker2 As Long
+	Dim durat As Integer
+
+Dim i_str As String
+
+
+	Set inpatient=Spreadsheets.Open("tabela_wizyty_na_poziomie_oddzialu.sta")
+	Set sorted=Spreadsheets.Open("posortowana_tabela_wizyty_na_poziomie_oddzialu.sta")
+	Set MRSA=Spreadsheets.Open("lista_zakazonych_MRSA")
+	Set sorted_ill=Spreadsheets.Open("lista_wizyt_MRSA_sorted.sta")
+
+
+	Set Rs = Spreadsheets.New
+	Rs.SetSize(3000,8)
+	Count=1
+	For j=1 To sorted_ill.NumberOfCases-1
+
+
+		For HowMany = sorted_ill.Value(j,2) To sorted_ill.Value(j+1,2)
+				i_str=CStr(MRSA.Value(HowMany,2))
+			Pick	=	sorted.Variable(1).Find(i_str).Row
+			cheker1=sorted.Value(Pick,2)
+			cheker2=sorted.Value(Pick+1,2)
+
+			For i=cheker1 To cheker2-1
+				If (inpatient.Value(i,3)>=MRSA.Value(HowMany,3) And inpatient.Value(i,4)<=MRSA.Value(HowMany,4) And inpatient.Value(i,1)<>sorted_ill.Value(j,1)  ) Then
+
+					Rs.Value(Count,1)=inpatient.Value(i,1)
+					Rs.Value(Count,2)=MRSA.Value(HowMany,2)
+					Rs.Value(Count,3)=sorted_ill.Value(j,1)
+					If (inpatient.Value(i,4)>=MRSA.Value(HowMany,4)) Then
+						If MRSA.Value(HowMany,4)<0 Then
+							MRSA.Value(HowMany,4)=MRSA.Value(HowMany,3)+1
+						End If
+						durat=Min(Abs(MRSA.Value(HowMany,4)-inpatient.Value(i,3)), Abs(MRSA.Value(HowMany,4)-MRSA.Value(HowMany,3)))+1
+					Else
+							If inpatient.Value(i,4)<0 Then
+								inpatient.Value(i,4)=inpatient.Value(HowMany,3)+1
+							End If
+						durat=Min(Abs(inpatient.Value(i,4)-inpatient.Value(i,3)), Abs(inpatient.Value(i,4)-MRSA.Value(HowMany,3)))+1
+
+					End If
+					If durat>100 Then
+						Rs.Value(Count,4)=RndPoisson(10)
+					Else
+						Rs.Value(Count,4)=durat
+					End If
+
+					Rs.Value(Count,5)=MRSA.Value(HowMany,3)
+					Count=Count+1
+
+				End If
+			Next i
+
+	    Next HowMany
+
+
+
+    Next j
+
+
+
+
+	Rs.Visible=True
+
+
+End Sub
+
+'STATISTICA MACRO FILE VERSION 4
+'BEGINPROPERTIES
+'NAME=chory1x_klinika_2015
+'DESCRIPTION=
+'LANGUAGE=0
+'SCRIPTING=0
+'ENDPROPERTIES
