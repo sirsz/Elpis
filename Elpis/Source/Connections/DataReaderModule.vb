@@ -80,12 +80,12 @@ Public Class DataReaderModule
                     'Next
                     If currentRow.Count = 5 Then ' Visits must have 5 elements
                         'Here is defined order of the CSV file:
-                        Dim VisitHospitalId As String = currentRow.ElementAt(0)
-                        Dim VisitName As String = currentRow.ElementAt(1)
+                        'CH.REQ#1106: Dim VisitHospitalId As String = currentRow.ElementAt(0)
+                        Dim VisitPatientName As String = currentRow.ElementAt(0)
+                        Dim WardId As String = currentRow.ElementAt(1)
                         Dim SigninDate As String = currentRow.ElementAt(2)
                         Dim SignoutDate As String = currentRow.ElementAt(3)
-                        Dim PatientHospID As String = currentRow.ElementAt(4)
-                        InsertNewVisit(VisitHospitalId, VisitName, SigninDate, SignoutDate, PatientHospID)
+                        InsertNewVisit(VisitPatientName, SigninDate, SignoutDate, WardId)
                         loadedItems += 1
                     End If
                 Catch ex As Microsoft.VisualBasic.
@@ -100,23 +100,25 @@ Public Class DataReaderModule
 
 
     Sub InsertNewVisit(
-        ByRef VisitHospitalId As String,
-        ByRef VisitName As String,
+        ByRef VisitPatientName As String,
         ByRef SigninDate As String,
         ByRef SignoutDate As String,
-        ByRef PatientHospID As String)
+        ByRef WardId As String)
 
         Dim visit_temp As New Visit
-        visit_temp.ValidateAndUpdate(VisitHospitalId, VisitName, SigninDate, SignoutDate, PatientHospID)
-        Dim insertQuerry As String = visit_temp.FormQuerry_Insert()
-        Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(insertQuerry)
-        If result.HasErrors Then
-            Toolbox.Log("Info: Nie można było zapisać nowej wizyty (ID:" & VisitHospitalId & ") w bazie danych.")
-            'Else
-            '    Toolbox.Log("Info: Zapisano nową wizytę w bazie danych z ID: " & VisitHospitalId)
+        If visit_temp.ValidateAndUpdate(VisitPatientName, SigninDate, SignoutDate, WardId) Then
+            Dim insertQuerry As String = visit_temp.FormQuerry_Insert()
+            Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(insertQuerry)
+            If result.HasErrors Then
+                Toolbox.Log("Info: Nie można było zapisać nowej wizyty (dla:" & VisitPatientName & ") w bazie danych.")
+                'Else
+                '    Toolbox.Log("Info: Zapisano nową wizytę w bazie danych z ID: " & VisitHospitalId)
+            End If
+            result.Clear()
+            result.Dispose()
+        Else
+            Toolbox.Log("Info: Nie można było sparsować nowej wizyty (dla:" & VisitPatientName & "). Wpis ten nie zostanie zaimportowany")
         End If
-        result.Clear()
-        result.Dispose()
     End Sub
 
 

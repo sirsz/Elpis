@@ -30,8 +30,8 @@ Public Class ElpisMainWindow
             textBoxInfoWard.Text = String.Empty
         End If
 
-        If context_.currVisit_.Get_f_Id > -1 Then
-            textBoxInfoVisit.Text = context_.currVisit_.Get_f_Id
+        If Not context_.currVisit_.Get_f_Name = String.Empty Then
+            textBoxInfoVisit.Text = context_.currVisit_.Get_f_Name
         Else
             textBoxInfoVisit.Text = String.Empty
         End If
@@ -426,7 +426,7 @@ Public Class ElpisMainWindow
 
     Private Sub MIP_About_Click(sender As Object, e As RoutedEventArgs) Handles MIP_About.Click
         Log(MIH_ViewHelp.Header.ToString)
-        MsgBox("Elips - Manager danych Systemu Informatycznego Redukcji Zakażeń Szpitalnych" & Environment.NewLine & "v 1.1.11. Beta" & Environment.NewLine & "SIRS-Z © 2016 - 2017" & Environment.NewLine & "WWW: http://www.sirsz.pl/")
+        MsgBox("Elips - Manager danych Systemu Informatycznego Redukcji Zakażeń Szpitalnych" & Environment.NewLine & "v 1.2.1. Beta" & Environment.NewLine & "SIRS-Z © 2016 - 2017" & Environment.NewLine & "WWW: http://www.sirsz.pl/")
     End Sub
 
 
@@ -451,9 +451,10 @@ Public Class ElpisMainWindow
         Dim querry As String = context_.currWard_.FormQuerry_Select()
         Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(querry)
         Fill_ListView(result)
+        Dim rows_found_count = result.Rows.Count
         result.Clear()
         result.Dispose()
-        Log("Info: Zakończono wyszukiwanie oddziałów. Liczba znalezionych pozycji: " & result.Rows.Count)
+        Log("Info: Zakończono wyszukiwanie oddziałów. Liczba znalezionych pozycji: " & rows_found_count)
     End Sub
 
     Sub ITabItem3Room_Search()
@@ -467,9 +468,10 @@ Public Class ElpisMainWindow
         Dim querry As String = context_.currRoom_.FormQuerry_Select()
         Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(querry)
         Fill_ListView(result)
+        Dim rows_found_count = result.Rows.Count
         result.Clear()
         result.Dispose()
-        Log("Info: Zakończono wyszukiwanie sal. Liczba znalezionych pozycji: " & result.Rows.Count)
+        Log("Info: Zakończono wyszukiwanie sal. Liczba znalezionych pozycji: " & rows_found_count)
     End Sub
 
     Sub ITabItem4Personel_Search()
@@ -484,9 +486,10 @@ Public Class ElpisMainWindow
         Dim querry As String = context_.currHospitalStaff_.FormQuerry_Select()
         Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(querry)
         Fill_ListView(result)
+        Dim rows_found_count = result.Rows.Count
         result.Clear()
         result.Dispose()
-        Log("Info: Zakończono wyszukiwanie pracowników. Liczba znalezionych pozycji: " & result.Rows.Count)
+        Log("Info: Zakończono wyszukiwanie pracowników. Liczba znalezionych pozycji: " & rows_found_count)
     End Sub
 
     Sub ITabItem6Visit_Search()
@@ -497,9 +500,10 @@ Public Class ElpisMainWindow
         Dim querry As String = context_.currVisit_.FormQuerry_Select()
         Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(querry)
         Fill_ListView(result)
+        Dim rows_found_count = result.Rows.Count
         result.Clear()
         result.Dispose()
-        Log("Info: Zakończono wyszukiwanie wizyt. Liczba znalezionych pozycji: " & result.Rows.Count)
+        Log("Info: Zakończono wyszukiwanie wizyt. Liczba znalezionych pozycji: " & rows_found_count)
     End Sub
 
     Sub ITabItem7LabTest_Search()
@@ -510,9 +514,10 @@ Public Class ElpisMainWindow
         Dim querry As String = context_.currLabTest_.FormQuerry_Select()
         Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(querry)
         Fill_ListView(result)
+        Dim rows_found_count = result.Rows.Count
         result.Clear()
         result.Dispose()
-        Log("Info: Zakończono wyszukiwanie badań. Liczba znalezionych pozycji: " & result.Rows.Count)
+        Log("Info: Zakończono wyszukiwanie badań. Liczba znalezionych pozycji: " & rows_found_count)
     End Sub
 
     Sub ITabItem8Duty_Search()
@@ -523,9 +528,10 @@ Public Class ElpisMainWindow
         Dim querry As String = context_.currDuty_.FormQuerry_Select()
         Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(querry)
         Fill_ListView(result)
+        Dim rows_found_count = result.Rows.Count
         result.Clear()
         result.Dispose()
-        Log("Info: Zakończono wyszukiwanie dyżurów. Liczba znalezionych pozycji: " & result.Rows.Count)
+        Log("Info: Zakończono wyszukiwanie dyżurów. Liczba znalezionych pozycji: " & rows_found_count)
     End Sub
 
     Private Sub listViewTest_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) Handles MainWindow_listView.SelectionChanged
@@ -615,11 +621,11 @@ Public Class ElpisMainWindow
     Sub ITabItem6Visit_Clean()
         Log("Czyszczenie formularza Wizyt")
         'Ft6Visit_HospID_TextBox.Text = String.Empty
-        Ft6Visit_PatientHospID_TextBox.Text = String.Empty
+        'CH.REQ#1106: Ft6Visit_PatientHospID_TextBox.Text = String.Empty
+        Ft6Visit_Name_TextBox.Text = String.Empty
         Ft6Visit_HospPlaceID_TextBox.Text = String.Empty
         Ft6Visit_SigninDate_TextBox.Text = String.Empty
         Ft6Visit_SignoutDate_TextBox.Text = String.Empty
-        Ft6Visit_Name_TextBox.Text = String.Empty
         context_.currVisit_.Clear()
 
     End Sub
@@ -822,19 +828,19 @@ Public Class ElpisMainWindow
     ' VISIT FORM <-> CONTEXT
     Sub ITabItem6Visit_UpdateContextVisitFromForm()
 
-        Dim f_patient_id As String = Ft6Visit_PatientHospID_TextBox.Text
-        Dim f_id As String = f_patient_id
+        'CH.REQ.#1105.1 Dim f_patient_id As String = Ft6Visit_PatientHospID_TextBox.Text
+        'CH.REQ.#1105.1 Dim f_id As String = f_patient_id
         'Dim f_patient_id As Integer  ' forgein key of <-> Patient.f_id_
         Dim f_ward_id As String = Ft6Visit_HospPlaceID_TextBox.Text
         Dim f_name As String = Ft6Visit_Name_TextBox.Text
         Dim f_date_in As String = Ft6Visit_SigninDate_TextBox.Text
         Dim f_date_out As String = Ft6Visit_SignoutDate_TextBox.Text
 
-        context_.currVisit_.ValidateAndUpdate(f_id, f_name, f_date_in, f_date_out, f_ward_id, f_patient_id)
+        context_.currVisit_.ValidateAndUpdate(f_name, f_date_in, f_date_out, f_ward_id)
         context_.currVisit_.d_id_ = context_.contextID_
     End Sub
     Sub ITabItem6Visit_UpdateFormFromContextVisit()
-        Ft6Visit_PatientHospID_TextBox.Text = context_.currVisit_.Get_f_Patient_Id
+        'CH.REQ.#1105.1 Ft6Visit_PatientHospID_TextBox.Text = context_.currVisit_.Get_f_Patient_Id
         Ft6Visit_HospPlaceID_TextBox.Text = context_.currVisit_.f_ward_id_
         Ft6Visit_SigninDate_TextBox.Text = context_.currVisit_.Get_f_Date_In
         Ft6Visit_SignoutDate_TextBox.Text = context_.currVisit_.Get_f_Date_Out
@@ -952,7 +958,7 @@ Public Class ElpisMainWindow
         ITabItem6Visit_UpdateContextVisitFromForm()
         If context_.currVisit_.IsInitialized Then
             Dim querry As String = context_.currVisit_.FormQuerry_Update()
-            Log("Info: Zaktualizowano informacje o wizycie " & context_.currVisit_.Get_f_Id)
+            Log("Info: Zaktualizowano informacje o wizycie " & context_.currVisit_.Get_f_Name)
             Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(querry)
             result.Clear()
             result.Dispose()
@@ -1181,11 +1187,11 @@ Public Class ElpisMainWindow
             Log("Błąd: Nie można znaleźć poprawnego ID - baza danych może być uszkodzona. Operacja anulowana.")
             Return
         End If
-        If (context_.currVisit_.Get_f_Id > -1) And (Not context_.currVisit_.Get_f_Date_In = String.Empty) Then
+        If (Not context_.currVisit_.f_name_ = String.Empty) And (Not context_.currVisit_.Get_f_Date_In = String.Empty) Then
             Dim insertQuerry As String = context_.currVisit_.FormQuerry_Insert()
             Dim result = My.Application.DatabaseSqliteInterface_.ExecuteQuerry(insertQuerry)
             If Not result.HasErrors Then
-                MsgBox("Info: Zapisano nową wizytę w bazie danych: " & context_.currVisit_.Get_f_Id)
+                MsgBox("Info: Zapisano nową wizytę w bazie danych: " & context_.currVisit_.Get_f_Name)
             End If
             result.Clear()
             result.Dispose()
