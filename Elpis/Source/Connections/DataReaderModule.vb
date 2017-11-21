@@ -78,7 +78,7 @@ Public Class DataReaderModule
                     'For Each currentField In currentRow
                     '    Console.WriteLine("  - current field:  """ & currentField & """")
                     'Next
-                    If currentRow.Count = 5 Then ' Visits must have 5 elements
+                    If currentRow.Count >= 4 Then ' Visits must have 4 or more elements
                         'Here is defined order of the CSV file:
                         'CH.REQ#1106: Dim VisitHospitalId As String = currentRow.ElementAt(0)
                         Dim VisitPatientName As String = currentRow.ElementAt(0)

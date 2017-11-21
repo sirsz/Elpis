@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Elpis"
         mc:Ignorable="d"
-        Title="Elpis - Logowanie" Height="350" Width="525" Icon="ELogo.ico">
+        Title="Elpis - Logging" Height="350" Width="525" Icon="ELogo.ico">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -13,7 +13,7 @@
                 <GradientStop Color="#FFDBFFF0" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Label x:Name="LoginPasswordLabel" Content="Hasło" HorizontalAlignment="Left" Margin="118,139,0,0" VerticalAlignment="Top" Width="41"/>
+        <Label x:Name="LoginPasswordLabel" Content="Password" HorizontalAlignment="Left" Margin="97,139,0,0" VerticalAlignment="Top" Width="62"/>
         <Label x:Name="LoginPasswordLabel1" Content="Login" HorizontalAlignment="Left" Margin="118,107,0,0" VerticalAlignment="Top" Width="41"/>
         <TextBox x:Name="LoginUserTextBox" HorizontalAlignment="Left" Height="22" Margin="164,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" ToolTip="User"/>
         <PasswordBox x:Name="LoginPasswordPasswordBox" HorizontalAlignment="Left" Height="22" Margin="164,139,0,0" VerticalAlignment="Top" Width="217"/>

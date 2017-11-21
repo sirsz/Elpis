@@ -14,181 +14,181 @@
             <ColumnDefinition Width="430*"/>
         </Grid.ColumnDefinitions>
         <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="410" Margin="193,31,0,0" VerticalAlignment="Top" Width="539" Grid.Column="1" Grid.ColumnSpan="3">
-            <TabItem x:Name="TabItem2Ward" Header="Oddział" >
+            <TabItem x:Name="TabItem2Ward" Header="Ward" >
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="66*"/>
                         <ColumnDefinition Width="463*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox x:Name="Ft2TextBoxWardID" HorizontalAlignment="Left" Height="28" Margin="101,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" ToolTip="Wpisz nazwe szpitala" Grid.Column="1"/>
-                    <Label x:Name="Ft1LabelWardID" Content="ID oddziału" HorizontalAlignment="Left" Margin="23,12,0,0" VerticalAlignment="Top" Width="90" Grid.ColumnSpan="2"/>
-                    <TextBox x:Name="Ft2TextBoxWardName" HorizontalAlignment="Left" Height="28" Margin="101,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" ToolTip="Wpisz nazwe szpitala" Grid.Column="1"/>
-                    <Label x:Name="Ft1LabelWardName" Content="Nazwa" HorizontalAlignment="Left" Margin="23,45,0,0" VerticalAlignment="Top" Width="90" Grid.ColumnSpan="2"/>
-                    <Label x:Name="Ft1LabelWardType" Content="Typ" HorizontalAlignment="Left" Margin="23,78,0,0" VerticalAlignment="Top" Width="90" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="Ft2TextBoxWardID" HorizontalAlignment="Left" Height="28" Margin="101,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" ToolTip="Wpisz nazwe Hospitala" Grid.Column="1"/>
+                    <Label x:Name="Ft1LabelWardID" Content="Ward ID" HorizontalAlignment="Left" Margin="23,12,0,0" VerticalAlignment="Top" Width="90" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="Ft2TextBoxWardName" HorizontalAlignment="Left" Height="28" Margin="101,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" ToolTip="Wpisz nazwe Hospitala" Grid.Column="1"/>
+                    <Label x:Name="Ft1LabelWardName" Content="Name" HorizontalAlignment="Left" Margin="23,45,0,0" VerticalAlignment="Top" Width="90" Grid.ColumnSpan="2"/>
+                    <Label x:Name="Ft1LabelWardType" Content="Type" HorizontalAlignment="Left" Margin="23,78,0,0" VerticalAlignment="Top" Width="90" Grid.ColumnSpan="2"/>
                     <ComboBox x:Name="Ft2WardType_ComboBox" HorizontalAlignment="Left" Height="28" Margin="101,76,0,0" VerticalAlignment="Top" Width="352" Grid.Column="1">
-                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt01" Content="Oddziały Niezabiegowe - Dorosłych" HorizontalAlignment="Left" Width="350"/>
-                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt02" Content="Oddziały Zabiegowe - Dorosłych" HorizontalAlignment="Left" Width="350"/>
-                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt03" Content="Oddziały Niezabiegowe - Dzieci" HorizontalAlignment="Left" Width="350"/>
-                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt04" Content="Anestezjologii i  intesywnej terapii - Dorosłych" HorizontalAlignment="Left" Width="350"/>
-                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt05" Content="Psychiatryczny" HorizontalAlignment="Left" Width="350"/>
-                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt06" Content="Położniczy/ginekologiczny" HorizontalAlignment="Left" Width="350"/>
-                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt07" Content="Rehabilitacyjny" HorizontalAlignment="Left" Width="350"/>
-                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt08" Content="Chirurgii urazowo" HorizontalAlignment="Left" Width="350"/>
-                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt09" Content="Neonatologiczny" HorizontalAlignment="Left" Width="350"/>
-                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt10" Content="Hematologiczny, onkologiczny" HorizontalAlignment="Left" Width="350"/>
-                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt11" Content="Chorób zakaźnych" HorizontalAlignment="Left" Width="350"/>
-                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt12" Content="Oddziały Zabiegowe - Dzieci" HorizontalAlignment="Left" Width="350"/>
-                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt13" Content="Inny" HorizontalAlignment="Left" Width="350"/>
+                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt01" Content="Ward of non-invasive adults" HorizontalAlignment="Left" Width="350"/>
+                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt02" Content="Ward of invasive adults" HorizontalAlignment="Left" Width="350"/>
+                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt03" Content="Ward of non-invasive children" HorizontalAlignment="Left" Width="350"/>
+                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt04" Content="ICU adults" HorizontalAlignment="Left" Width="350"/>
+                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt05" Content="Psychiatry" HorizontalAlignment="Left" Width="350"/>
+                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt06" Content="Ginecology" HorizontalAlignment="Left" Width="350"/>
+                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt07" Content="Rehabilitation" HorizontalAlignment="Left" Width="350"/>
+                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt08" Content="surgery" HorizontalAlignment="Left" Width="350"/>
+                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt09" Content="neonatology" HorizontalAlignment="Left" Width="350"/>
+                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt10" Content="cancer" HorizontalAlignment="Left" Width="350"/>
+                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt11" Content="infecious disease" HorizontalAlignment="Left" Width="350"/>
+                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt12" Content="Wardy invasive - children" HorizontalAlignment="Left" Width="350"/>
+                        <ComboBoxItem x:Name="Ft2_Ward_TypeComboboxItem_opt13" Content="other" HorizontalAlignment="Left" Width="350"/>
                     </ComboBox>
                     <TextBox x:Name="Ft2TextBoxWardMaxNumberOfBeds" HorizontalAlignment="Left" Height="28" Margin="101,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" Grid.Column="1"/>
-                    <Label x:Name="Ft1LabelWardMaxNumberOfBeds" Content="Maksymalna liczba łóżek" HorizontalAlignment="Left" Margin="23,111,0,0" VerticalAlignment="Top" Width="144" Grid.ColumnSpan="2"/>
+                    <Label x:Name="Ft1LabelWardMaxNumberOfBeds" Content="Max capacity" HorizontalAlignment="Left" Margin="23,111,0,0" VerticalAlignment="Top" Width="144" Grid.ColumnSpan="2"/>
                     <TextBox x:Name="Ft2TextBoxMeanOccupancy" HorizontalAlignment="Left" Height="28" Margin="101,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" Grid.Column="1"/>
-                    <Label x:Name="Ft1LabelWardMeanOccupancy" Content="Średnie obłożenie" HorizontalAlignment="Left" Margin="23,144,0,0" VerticalAlignment="Top" Width="139" Grid.ColumnSpan="2"/>
+                    <Label x:Name="Ft1LabelWardMeanOccupancy" Content="Avarage capacity" HorizontalAlignment="Left" Margin="23,144,0,0" VerticalAlignment="Top" Width="139" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="TabItem3Room" Header="Sala" Height="23" VerticalAlignment="Top" >
+            <TabItem x:Name="TabItem3Room" Header="Room" Height="23" VerticalAlignment="Top" >
                 <Grid Background="#FFE5E5E5">
                     <Grid Background="#FFE5E5E5">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="111*"/>
                             <ColumnDefinition Width="418*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox x:Name="Ft3TextBoxRoomNumber" HorizontalAlignment="Left" Height="28" Margin="49,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" ToolTip="Wpisz nazwe szpitala" Grid.Column="1"/>
-                        <Label x:Name="Ft3LabelRoomNumber" Content="Numer" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Width="90" Height="26"/>
-                        <TextBox x:Name="Ft3TextBoxRoomId" HorizontalAlignment="Left" Height="28" Margin="49,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" ToolTip="Wpisz nazwe szpitala" Grid.Column="1"/>
-                        <Label x:Name="Ft3LabelRoomID" Content="ID Sali" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="90" Height="26"/>
+                        <TextBox x:Name="Ft3TextBoxRoomNumber" HorizontalAlignment="Left" Height="28" Margin="49,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" ToolTip="Wpisz nazwe Hospitala" Grid.Column="1"/>
+                        <Label x:Name="Ft3LabelRoomNumber" Content="Number" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Width="90" Height="26"/>
+                        <TextBox x:Name="Ft3TextBoxRoomId" HorizontalAlignment="Left" Height="28" Margin="49,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" ToolTip="Wpisz nazwe Hospitala" Grid.Column="1"/>
+                        <Label x:Name="Ft3LabelRoomID" Content="Room ID" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="90" Height="26"/>
                         <TextBox x:Name="Ft3TextBoxMeanOccupancy" HorizontalAlignment="Left" Height="28" Margin="49,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" Grid.Column="1"/>
-                        <Label x:Name="Ft3LabelRoomMeanOccupancy" Content="Średnie obłożenie" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="139" Grid.ColumnSpan="2" Height="26"/>
+                        <Label x:Name="Ft3LabelRoomMeanOccupancy" Content="Average capacity" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="139" Grid.ColumnSpan="2" Height="26"/>
                         <TextBox x:Name="Ft3TextBoxMaxNumberOfBeds" HorizontalAlignment="Left" Height="28" Margin="49,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" Grid.Column="1"/>
-                        <Label x:Name="Ft3LabelRoomMeanOccupancy_Copy" Content="Maksymalna liczba łóżek" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top" Width="152" Grid.ColumnSpan="2" Height="26"/>
+                        <Label x:Name="Ft3LabelRoomMeanOccupancy_Copy" Content="Maximum capacity" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top" Width="152" Grid.ColumnSpan="2" Height="26"/>
                     </Grid>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="TabItem4Personel" Header="Personel">
+            <TabItem x:Name="TabItem4Personel" Header="Personnel">
                 <Grid Background="#FFE5E5E5">
-                    <TextBox x:Name="Ft4PersonelHospID_TextBox" HorizontalAlignment="Left" Height="28" Margin="159,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" ToolTip="Wpisz nazwe szpitala"/>
-                    <Label x:Name="Ft4PersonelHospID_Label" Content="Identyfikator szpitalny" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" Width="133"/>
-                    <TextBox x:Name="Ft4PersonelName_TextBox" HorizontalAlignment="Left" Height="28" Margin="159,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360"/>
-                    <Label x:Name="Ft4PersonelName_Label" Content="Imie i Nazwisko" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="95"/>
-                    <Label x:Name="Ft4PersonelName_Label_Copy" Content="Funkcja" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Width="95"/>
-                    <ComboBox x:Name="Ft4PersonelFunction_ComboBox" HorizontalAlignment="Left" Height="27" Margin="159,76,0,0" VerticalAlignment="Top" Width="360">
-                        <ComboBoxItem x:Name="PersonelFunction_Doctor" Content="Lekarska" HorizontalAlignment="Left" Width="358"/>
-                        <ComboBoxItem x:Name="PersonelFunction_Nurse" Content="Pielęgniarska" HorizontalAlignment="Left" Width="358"/>
+                    <TextBox x:Name="Ft4PersonelHospID_TextBox" HorizontalAlignment="Left" Height="28" Margin="159,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" ToolTip="Wpisz nazwe Hospitala"/>
+                    <Label x:Name="Ft4PersonelHospID_Label" Content="Hospital ID" HorizontalAlignment="Left" Margin="26,14,0,0" VerticalAlignment="Top" Width="133"/>
+                    <TextBox x:Name="Ft4PersonelName_TextBox" HorizontalAlignment="Left" Height="28" Margin="159,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360"/>
+                    <Label x:Name="Ft4PersonelName_Label" Content="Name" HorizontalAlignment="Left" Margin="59,49,0,0" VerticalAlignment="Top" Width="95"/>
+                    <Label x:Name="Ft4PersonelName_Label_Copy" Content="Role" HorizontalAlignment="Left" Margin="59,90,0,0" VerticalAlignment="Top" Width="95"/>
+                    <ComboBox x:Name="Ft4PersonelFunction_ComboBox" HorizontalAlignment="Left" Height="27" Margin="159,89,0,0" VerticalAlignment="Top" Width="360">
+                        <ComboBoxItem x:Name="PersonelFunction_Doctor" Content="Physician" HorizontalAlignment="Left" Width="358"/>
+                        <ComboBoxItem x:Name="PersonelFunction_Nurse" Content="Nurse" HorizontalAlignment="Left" Width="358"/>
                     </ComboBox>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="TabItem5Patient" Header="Pacjent" Margin="161,0,-165,0" Visibility="Hidden">
+            <TabItem x:Name="TabItem5Patient" Header="Pacient" Margin="161,0,-165,0" Visibility="Hidden">
                 <Grid Background="#FFE5E5E5">
-                    <TextBox x:Name="Ft5PatientHospID_TextBox" HorizontalAlignment="Left" Height="28" Margin="159,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" ToolTip="Wpisz nazwe szpitala"/>
-                    <Label x:Name="Ft5PatientHospID_Label" Content="Identyfikator szpitalny" HorizontalAlignment="Left" Margin="26,14,0,0" VerticalAlignment="Top" Width="133"/>
-                    <TextBox x:Name="Ft5PatientHospIdent_Textbox" HorizontalAlignment="Left" Height="28" Margin="159,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" ToolTip="Wpisz nazwe szpitala"/>
-                    <Label x:Name="Ft5PatientHospIdent_Label" Content="Identyfikacja" HorizontalAlignment="Left" Margin="26,45,0,0" VerticalAlignment="Top" Width="133"/>
-                    <Label x:Name="Ft5PatientHospRegisterType_Label" Content="Rodzaj przyjęcia" HorizontalAlignment="Left" Margin="26,76,0,0" VerticalAlignment="Top" Width="133"/>
-                    <TextBox x:Name="Ft5PatientHospAdditionalInfo_Textbox" HorizontalAlignment="Left" Height="28" Margin="159,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" ToolTip="Wpisz nazwe szpitala"/>
-                    <Label x:Name="Ft5PatientHospIAdditionalInfo_Label" Content="Informacje dodatkowe" HorizontalAlignment="Left" Margin="26,107,0,0" VerticalAlignment="Top" Width="133"/>
+                    <TextBox x:Name="Ft5PatientHospID_TextBox" HorizontalAlignment="Left" Height="28" Margin="159,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" ToolTip="Wpisz nazwe Hospitala"/>
+                    <Label x:Name="Ft5PatientHospID_Label" Content="Hospital Id" HorizontalAlignment="Left" Margin="26,14,0,0" VerticalAlignment="Top" Width="133"/>
+                    <TextBox x:Name="Ft5PatientHospIdent_Textbox" HorizontalAlignment="Left" Height="28" Margin="159,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" ToolTip="Wpisz nazwe Hospitala"/>
+                    <Label x:Name="Ft5PatientHospIdent_Label" Content="Id" HorizontalAlignment="Left" Margin="26,45,0,0" VerticalAlignment="Top" Width="133"/>
+                    <Label x:Name="Ft5PatientHospRegisterType_Label" Content="Admition Type" HorizontalAlignment="Left" Margin="26,76,0,0" VerticalAlignment="Top" Width="133"/>
+                    <TextBox x:Name="Ft5PatientHospAdditionalInfo_Textbox" HorizontalAlignment="Left" Height="28" Margin="159,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" ToolTip="Wpisz nazwe Hospitala"/>
+                    <Label x:Name="Ft5PatientHospIAdditionalInfo_Label" Content="additional info" HorizontalAlignment="Left" Margin="26,107,0,0" VerticalAlignment="Top" Width="133"/>
                     <ComboBox x:Name="Ft5PatientHospRegisterType_ComboBox" HorizontalAlignment="Left" Height="27" Margin="159,76,0,0" VerticalAlignment="Top" Width="360">
-                        <ComboBoxItem x:Name="Ft5PatientHospRegisterType_Opt1Standard" Content="Standardowe" HorizontalAlignment="Left" Width="358"/>
-                        <ComboBoxItem x:Name="Ft5PatientHospRegisterType_Opt2Emergency" Content="W trybie nagłym" HorizontalAlignment="Left" Width="358"/>
+                        <ComboBoxItem x:Name="Ft5PatientHospRegisterType_Opt1Standard" Content="standard" HorizontalAlignment="Left" Width="358"/>
+                        <ComboBoxItem x:Name="Ft5PatientHospRegisterType_Opt2Emergency" Content="emergency" HorizontalAlignment="Left" Width="358"/>
                     </ComboBox>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="TabItem6Visit" Header="Wizyta" Margin="-53,0,49,0">
+            <TabItem x:Name="TabItem6Visit" Header="Visit" Margin="-53,0,49,0">
                 <Grid Background="#FFE5E5E5">
                     <TextBox x:Name="Ft6Visit_Name_TextBox" HorizontalAlignment="Left" Height="28" Margin="159,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360"/>
-                    <Label x:Name="Ft6Visit_Name_Label" Content="Nazwa pacjenta" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="133" Grid.ColumnSpan="2"/>
-                    <TextBox x:Name="Ft6Visit_HospPlaceID_TextBox" HorizontalAlignment="Left" Height="28" Margin="159,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" ToolTip="Wpisz nazwe szpitala"/>
-                    <Label x:Name="Ft6Visit_HospPlaceID_Label" Content="Identyfikator miejsca" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="133" Grid.ColumnSpan="2"/>
-                    <TextBox x:Name="Ft6Visit_SigninDate_TextBox" HorizontalAlignment="Left" Height="28" Margin="159,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" ToolTip="Wpisz nazwe szpitala"/>
-                    <Label x:Name="Ft6Visit_SigninDate_Label" Content="Data przyjęcia" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="133" Grid.ColumnSpan="2"/>
-                    <TextBox x:Name="Ft6Visit_SignoutDate_TextBox" HorizontalAlignment="Left" Height="28" Margin="159,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" ToolTip="Wpisz nazwe szpitala"/>
-                    <Label x:Name="Ft6Visit_SignoutDate_Label" Content="Data wypisu" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top" Width="133" Grid.ColumnSpan="2"/>
+                    <Label x:Name="Ft6Visit_Name_Label" Content="Patient name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="133" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="Ft6Visit_HospPlaceID_TextBox" HorizontalAlignment="Left" Height="28" Margin="159,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" ToolTip="Text. Field mandatory"/>
+                    <Label x:Name="Ft6Visit_HospPlaceID_Label" Content="Place ID" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="133" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="Ft6Visit_SigninDate_TextBox" HorizontalAlignment="Left" Height="28" Margin="159,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" ToolTip="Optional. Number"/>
+                    <Label x:Name="Ft6Visit_SigninDate_Label" Content="Date of admition" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="133" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="Ft6Visit_SignoutDate_TextBox" HorizontalAlignment="Left" Height="28" Margin="159,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" ToolTip="Text. Field mandatory"/>
+                    <Label x:Name="Ft6Visit_SignoutDate_Label" Content="Date of discharge" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top" Width="133" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="TabItem7LabTest" Header="Badanie" Margin="-50,0,46,0">
+            <TabItem x:Name="TabItem7LabTest" Header="Test" Margin="-50,0,46,0">
                 <Grid Background="#FFE5E5E5" Margin="0,-1,0,-4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition Width="0*"/>
                     </Grid.ColumnDefinitions>
-                    <Label x:Name="Ft7LabTest_LabTestID_Label" Content="Identyfikator szpitalny" HorizontalAlignment="Left" Margin="21,22,0,0" VerticalAlignment="Top" Width="146"/>
+                    <Label x:Name="Ft7LabTest_LabTestID_Label" Content="Hospital ID" HorizontalAlignment="Left" Margin="21,22,0,0" VerticalAlignment="Top" Width="146"/>
                     <TextBox x:Name="Ft7LabTest_LabTestID_TextBox" HorizontalAlignment="Left" Height="28" Margin="177,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342"/>
                     <TextBox x:Name="Ft7LabTest_PatientHospID_TextBox" HorizontalAlignment="Left" Height="28" Margin="177,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342"/>
-                    <Label x:Name="Ft7LabTest_PatientHospID_Label" Content="Identyfikator pacjenta" HorizontalAlignment="Left" Margin="21,53,0,0" VerticalAlignment="Top" Width="146" Height="26"/>
-                    <Label x:Name="Ft7LabTest_P1OrderDate_Label" Content="Patogen 1.: Data zlecenia" HorizontalAlignment="Left" Margin="21,96,0,0" VerticalAlignment="Top" Width="146" Height="26"/>
-                    <TextBox x:Name="Ft7LabTest_P1OrderDate_TextBox" HorizontalAlignment="Left" Height="28" Margin="177,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" ToolTip="Wpisz nazwe szpitala"/>
-                    <Label x:Name="Ft7LabTest_P1Result_Label" Content="Patogen 1.: Wynik" HorizontalAlignment="Left" Margin="21,129,0,0" VerticalAlignment="Top" Width="146" Height="26"/>
+                    <Label x:Name="Ft7LabTest_PatientHospID_Label" Content="Patient ID" HorizontalAlignment="Left" Margin="21,53,0,0" VerticalAlignment="Top" Width="146" Height="26"/>
+                    <Label x:Name="Ft7LabTest_P1OrderDate_Label" Content="Pathogen 1.: Date" HorizontalAlignment="Left" Margin="21,96,0,0" VerticalAlignment="Top" Width="146" Height="26"/>
+                    <TextBox x:Name="Ft7LabTest_P1OrderDate_TextBox" HorizontalAlignment="Left" Height="28" Margin="177,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" ToolTip="Wpisz nazwe Hospitala"/>
+                    <Label x:Name="Ft7LabTest_P1Result_Label" Content="Pathogen 1.: Result" HorizontalAlignment="Left" Margin="21,129,0,0" VerticalAlignment="Top" Width="146" Height="26"/>
                     <TextBox x:Name="Ft7LabTest_P1Result_TextBox" HorizontalAlignment="Left" Height="28" Margin="177,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342"/>
-                    <Label x:Name="Ft7LabTest_P1Root_Label" Content="Patogen 1.: Szczep" HorizontalAlignment="Left" Margin="21,162,0,0" VerticalAlignment="Top" Width="146" Height="26"/>
-                    <TextBox x:Name="Ft7LabTest_P1Root_TextBox" HorizontalAlignment="Left" Height="28" Margin="177,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" ToolTip="Wpisz nazwe szpitala"/>
-                    <Label x:Name="Ft7LabTest_P1Level_Label" Content="Patogen 1.: Poziom" HorizontalAlignment="Left" Margin="21,195,0,0" VerticalAlignment="Top" Width="146" Height="26"/>
-                    <TextBox x:Name="Ft7LabTest_P1Level_TextBox" HorizontalAlignment="Left" Height="28" Margin="177,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" ToolTip="Wpisz nazwe szpitala"/>
-                    <Label x:Name="Ft7LabTest_P2OrderDate_Label" Content="Patogen 2.: Data zlecenia" HorizontalAlignment="Left" Margin="21,245,0,0" VerticalAlignment="Top" Width="146" Height="26"/>
-                    <TextBox x:Name="Ft7LabTest_P2OrderDate_TextBox" HorizontalAlignment="Left" Height="28" Margin="177,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" ToolTip="Wpisz nazwe szpitala"/>
-                    <Label x:Name="Ft7LabTest_P2Result_Label" Content="Patogen 2.: Wynik" HorizontalAlignment="Left" Margin="21,276,0,0" VerticalAlignment="Top" Width="146" Height="26"/>
+                    <Label x:Name="Ft7LabTest_P1Root_Label" Content="Pathogen 1.: Strain" HorizontalAlignment="Left" Margin="21,162,0,0" VerticalAlignment="Top" Width="146" Height="26"/>
+                    <TextBox x:Name="Ft7LabTest_P1Root_TextBox" HorizontalAlignment="Left" Height="28" Margin="177,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" ToolTip="Wpisz nazwe Hospitala"/>
+                    <Label x:Name="Ft7LabTest_P1Level_Label" Content="Pathogen 1.: Level" HorizontalAlignment="Left" Margin="21,195,0,0" VerticalAlignment="Top" Width="146" Height="26"/>
+                    <TextBox x:Name="Ft7LabTest_P1Level_TextBox" HorizontalAlignment="Left" Height="28" Margin="177,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" ToolTip="Wpisz nazwe Hospitala"/>
+                    <Label x:Name="Ft7LabTest_P2OrderDate_Label" Content="Pathogen 2.: Date" HorizontalAlignment="Left" Margin="21,245,0,0" VerticalAlignment="Top" Width="146" Height="26"/>
+                    <TextBox x:Name="Ft7LabTest_P2OrderDate_TextBox" HorizontalAlignment="Left" Height="28" Margin="177,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" ToolTip="Wpisz nazwe Hospitala"/>
+                    <Label x:Name="Ft7LabTest_P2Result_Label" Content="Pathogen 2.: Result" HorizontalAlignment="Left" Margin="21,276,0,0" VerticalAlignment="Top" Width="146" Height="26"/>
                     <TextBox x:Name="Ft7LabTest_P2Result_TextBox" HorizontalAlignment="Left" Height="28" Margin="177,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342"/>
-                    <Label x:Name="Ft7LabTest_P2Root_Label" Content="Patogen 2.: Szczep" HorizontalAlignment="Left" Margin="21,311,0,0" VerticalAlignment="Top" Width="146" Height="26"/>
-                    <TextBox x:Name="Ft7LabTest_P2Root_TextBox" HorizontalAlignment="Left" Height="28" Margin="177,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" ToolTip="Wpisz nazwe szpitala"/>
-                    <Label x:Name="Ft7LabTest_P2Level_Label" Content="Patogen 2.: Poziom" HorizontalAlignment="Left" Margin="21,344,0,0" VerticalAlignment="Top" Width="146" Height="26"/>
-                    <TextBox x:Name="Ft7LabTest_P2Level_TextBox" HorizontalAlignment="Left" Height="28" Margin="177,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" ToolTip="Wpisz nazwe szpitala"/>
+                    <Label x:Name="Ft7LabTest_P2Root_Label" Content="Pathogen 2.: Strain" HorizontalAlignment="Left" Margin="21,311,0,0" VerticalAlignment="Top" Width="146" Height="26"/>
+                    <TextBox x:Name="Ft7LabTest_P2Root_TextBox" HorizontalAlignment="Left" Height="28" Margin="177,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" ToolTip="Wpisz nazwe Hospitala"/>
+                    <Label x:Name="Ft7LabTest_P2Level_Label" Content="Pathogen 2.: Level" HorizontalAlignment="Left" Margin="21,344,0,0" VerticalAlignment="Top" Width="146" Height="26"/>
+                    <TextBox x:Name="Ft7LabTest_P2Level_TextBox" HorizontalAlignment="Left" Height="28" Margin="177,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" ToolTip="Wpisz nazwe Hospitala"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="TabItem8Duty" Header="Dyżur" Margin="-46,0,42,0">
+            <TabItem x:Name="TabItem8Duty" Header="Shift" Margin="-46,0,42,0">
                 <Grid Background="#FFE5E5E5">
-                    <Label x:Name="Ft8Duty_Date_Label" Content="Data dyżuru" HorizontalAlignment="Left" Margin="104,14,0,0" VerticalAlignment="Top" Width="87"/>
+                    <Label x:Name="Ft8Duty_Date_Label" Content="Date" HorizontalAlignment="Left" Margin="104,14,0,0" VerticalAlignment="Top" Width="87"/>
                     <TextBox x:Name="Ft8Duty_PersonelHospID_TextBox" HorizontalAlignment="Left" Height="28" Margin="196,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="323"/>
-                    <Label x:Name="Ft8Duty_PersonelHospID_Label" Content="Intentyfikator dyżurującego" HorizontalAlignment="Left" Margin="25,49,0,0" VerticalAlignment="Top" Width="166"/>
+                    <Label x:Name="Ft8Duty_PersonelHospID_Label" Content="ID Shift" HorizontalAlignment="Left" Margin="104,49,0,0" VerticalAlignment="Top" Width="87"/>
                     <DatePicker x:Name="Ft8Duty_Date_DatePicker" HorizontalAlignment="Left" Margin="196,15,0,0" VerticalAlignment="Top" Width="323" Height="27"/>
                 </Grid>
             </TabItem>
         </TabControl>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="410" Margin="55,31,0,0" Stroke="Black" VerticalAlignment="Top" Width="131" Grid.Column="1"/>
-        <Button x:Name="buttonNavSearch" Content="Szukaj" HorizontalAlignment="Left" Height="26" Margin="73,65,0,0" VerticalAlignment="Top" Width="92" Grid.Column="1"/>
+        <Button x:Name="buttonNavSearch" Content="Search" HorizontalAlignment="Left" Height="26" Margin="73,65,0,0" VerticalAlignment="Top" Width="92" Grid.Column="1"/>
         <Button x:Name="buttonNavPrevious" Content="&lt;&lt;" HorizontalAlignment="Left" Height="26" Margin="73,96,0,0" VerticalAlignment="Top" Width="42" Grid.Column="1"/>
         <Button x:Name="buttonNavNext" Content="&gt;&gt;" HorizontalAlignment="Left" Height="26" Margin="123,96,0,0" VerticalAlignment="Top" Width="42" Grid.Column="1"/>
-        <Button x:Name="buttonNavCleanForm" Content="Wyczyść" HorizontalAlignment="Left" Height="26" Margin="73.43,127,0,0" VerticalAlignment="Top" Width="92" Grid.Column="1"/>
-        <Button x:Name="buttonNavNew" Content="Dodaj" HorizontalAlignment="Left" Height="26" Margin="73.43,338,0,0" VerticalAlignment="Top" Width="92" Grid.Column="1" IsEnabled="False"/>
-        <Button x:Name="buttonNavSave" Content="Aktualizuj" HorizontalAlignment="Left" Height="26" Margin="73.43,369,0,0" VerticalAlignment="Top" Width="92" Grid.Column="1"/>
-        <Button x:Name="buttonNavDelete" Content="Usuń" HorizontalAlignment="Left" Height="26" Margin="73.43,400,0,0" VerticalAlignment="Top" Width="92" Grid.Column="1"/>
+        <Button x:Name="buttonNavCleanForm" Content="Clear" HorizontalAlignment="Left" Height="26" Margin="73.43,127,0,0" VerticalAlignment="Top" Width="92" Grid.Column="1"/>
+        <Button x:Name="buttonNavNew" Content="Add" HorizontalAlignment="Left" Height="26" Margin="73.43,338,0,0" VerticalAlignment="Top" Width="92" Grid.Column="1" IsEnabled="False"/>
+        <Button x:Name="buttonNavSave" Content="Update" HorizontalAlignment="Left" Height="26" Margin="73.43,369,0,0" VerticalAlignment="Top" Width="92" Grid.Column="1"/>
+        <Button x:Name="buttonNavDelete" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="73.43,400,0,0" VerticalAlignment="Top" Width="92" Grid.Column="1"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="410" Margin="10,31,0,0" Stroke="Black" VerticalAlignment="Top" Width="303" Grid.ColumnSpan="2"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="125" Margin="10,446,0,0" Stroke="Black" VerticalAlignment="Top" Width="441" Grid.ColumnSpan="2"/>
-        <Button x:Name="buttonMenCalculate" Content="Oblicz" HorizontalAlignment="Left" Height="26" Margin="73.43,467,0,0" VerticalAlignment="Top" Width="92" Grid.Column="1"/>
-        <Label x:Name="labelMenCalculate" Content="Sciezki zakażeń" HorizontalAlignment="Left" Margin="25,466,0,0" VerticalAlignment="Top" Width="173" RenderTransformOrigin="-1.275,-0.885" Height="26"/>
-        <Label x:Name="labelInfoHospital" Content="Szpital: " HorizontalAlignment="Left" Height="26" Margin="25,65,0,0" VerticalAlignment="Top" Width="70"/>
+        <Button x:Name="buttonMenCalculate" Content="Calculate" HorizontalAlignment="Left" Height="26" Margin="73.43,467,0,0" VerticalAlignment="Top" Width="92" Grid.Column="1"/>
+        <Label x:Name="labelMenCalculate" Content="Infection paths" HorizontalAlignment="Left" Margin="25,466,0,0" VerticalAlignment="Top" Width="173" RenderTransformOrigin="-1.275,-0.885" Height="26"/>
+        <Label x:Name="labelInfoHospital" Content="Hospital: " HorizontalAlignment="Left" Height="26" Margin="25,65,0,0" VerticalAlignment="Top" Width="70"/>
         <TextBox x:Name="textBoxInfoHospital" HorizontalAlignment="Left" Height="23" Margin="104,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="194" IsEnabled="False" Grid.ColumnSpan="2"/>
-        <Label x:Name="labelInfoWard" Content="Oddział: " HorizontalAlignment="Left" Height="26" Margin="25,96,0,0" VerticalAlignment="Top" Width="70"/>
+        <Label x:Name="labelInfoWard" Content="Ward: " HorizontalAlignment="Left" Height="26" Margin="25,96,0,0" VerticalAlignment="Top" Width="70"/>
         <TextBox x:Name="textBoxInfoWard" HorizontalAlignment="Left" Height="23" Margin="104,98,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="194" IsEnabled="False" Grid.ColumnSpan="2"/>
-        <Label x:Name="labelInfoVisit" Content="Wizyta" HorizontalAlignment="Left" Margin="25,127,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,0.5" Width="70"/>
+        <Label x:Name="labelInfoVisit" Content="Visit:" HorizontalAlignment="Left" Margin="25,127,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,0.5" Width="70"/>
         <TextBox x:Name="textBoxInfoVisit" HorizontalAlignment="Left" Height="23" Margin="104,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="194" IsEnabled="False" Grid.ColumnSpan="2"/>
-        <Label x:Name="labelInfoLabTest" Content="Badanie: " HorizontalAlignment="Left" Height="26" Margin="25,156,0,0" VerticalAlignment="Top" Width="70"/>
+        <Label x:Name="labelInfoLabTest" Content="Test: " HorizontalAlignment="Left" Height="26" Margin="25,156,0,0" VerticalAlignment="Top" Width="70"/>
         <TextBox x:Name="textBoxInfoLabTest" HorizontalAlignment="Left" Height="23" Margin="104,156,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="194" IsEnabled="False" Grid.ColumnSpan="2"/>
-        <Label x:Name="labelInfoContext" Content="Kontekst programu" HorizontalAlignment="Left" Margin="25,187,0,0" VerticalAlignment="Top" Width="133" Height="26"/>
+        <Label x:Name="labelInfoContext" Content="Program context" HorizontalAlignment="Left" Margin="25,187,0,0" VerticalAlignment="Top" Width="133" Height="26"/>
         <TextBox x:Name="textBoxInfoContext" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="26" Margin="174,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124" IsEnabled="False"/>
         <Menu x:Name="FWMPlik" Height="21" Margin="10,10,37.57,0" VerticalAlignment="Top">
-            <MenuItem x:Name="FWMIFile" Header="Plik" Width="33">
-                <MenuItem x:Name="MIF_New" Header="Nowy" HorizontalAlignment="Left" Width="155" Height="25" Margin="0,0,-10,0"/>
-                <MenuItem x:Name="MIF_Open" Header="Otworz" HorizontalAlignment="Left" Width="145"/>
+            <MenuItem x:Name="FWMIFile" Header="File" Width="33">
+                <MenuItem x:Name="MIF_New" Header="New" HorizontalAlignment="Left" Width="155" Height="25" Margin="0,0,-10,0"/>
+                <MenuItem x:Name="MIF_Open" Header="Open" HorizontalAlignment="Left" Width="145"/>
                 <Separator HorizontalAlignment="Left" Width="190"/>
-                <MenuItem x:Name="MIF_Save" Header="Zapisz" HorizontalAlignment="Left" Width="145"/>
+                <MenuItem x:Name="MIF_Save" Header="Save" HorizontalAlignment="Left" Width="145"/>
                 <Separator HorizontalAlignment="Left" Width="190"/>
-                <MenuItem x:Name="MIF_Close_Program" Header="Zamknij program" HorizontalAlignment="Left" Width="190"/>
+                <MenuItem x:Name="MIF_Close_Program" Header="Close program" HorizontalAlignment="Left" Width="190"/>
             </MenuItem>
-            <MenuItem x:Name="FWMIEdit" Header="Edycja">
-                <MenuItem x:Name="MIE_Undo" Header="Cofnij" HorizontalAlignment="Left" Width="145"/>
-                <MenuItem x:Name="MIE_Redo" Header="Przywróć" HorizontalAlignment="Left" Width="145"/>
+            <MenuItem x:Name="FWMIEdit" Header="Edit">
+                <MenuItem x:Name="MIE_Undo" Header="Back" HorizontalAlignment="Left" Width="145"/>
+                <MenuItem x:Name="MIE_Redo" Header="Foward" HorizontalAlignment="Left" Width="145"/>
                 <Separator HorizontalAlignment="Left" Width="145"/>
-                <MenuItem x:Name="MIE_Cut" Header="Wytnij" HorizontalAlignment="Left" Width="145"/>
-                <MenuItem x:Name="MIE_Copy" Header="Kopiuj" HorizontalAlignment="Left" Width="145"/>
-                <MenuItem x:Name="MIE_Paste" Header="Wklej" HorizontalAlignment="Left" Width="145"/>
+                <MenuItem x:Name="MIE_Cut" Header="Cut" HorizontalAlignment="Left" Width="145"/>
+                <MenuItem x:Name="MIE_Copy" Header="Copy" HorizontalAlignment="Left" Width="145"/>
+                <MenuItem x:Name="MIE_Paste" Header="Paste" HorizontalAlignment="Left" Width="145"/>
                 <Separator HorizontalAlignment="Left" Width="145"/>
-                <MenuItem x:Name="MIE_ClearAll" Header="Wyczyść" HorizontalAlignment="Left" Width="145"/>
+                <MenuItem x:Name="MIE_ClearAll" Header="Clear" HorizontalAlignment="Left" Width="145"/>
             </MenuItem>
-            <MenuItem x:Name="FWMView" Header="Ustawienia">
-                <MenuItem x:Name="MIV_Settings" Header="Konfiguracja danych wejściowych" />
+            <MenuItem x:Name="FWMView" Header="Settings">
+                <MenuItem x:Name="MIV_Settings" Header="Input data configuration" />
                 <MenuItem Header="Import" HorizontalAlignment="Left" Width="266" Click="MenuItem_Click"/>
             </MenuItem>
-            <MenuItem x:Name="FWMIHelp" Header="Pomoc">
-                <MenuItem x:Name="MIH_ViewHelp" Header="Pomoc" />
-                <MenuItem x:Name="MIP_About" Header="O programie" />
+            <MenuItem x:Name="FWMIHelp" Header="Help">
+                <MenuItem x:Name="MIH_ViewHelp" Header="Help" />
+                <MenuItem x:Name="MIP_About" Header="About the program" />
             </MenuItem>
         </Menu>
         <ListView x:Name="MainWindow_listView" HorizontalAlignment="Left" Height="125" Margin="193,446,0,0" VerticalAlignment="Top" Width="536" Grid.ColumnSpan="3" Grid.Column="1">
@@ -198,8 +198,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label x:Name="labelLog" Content="Aktywny" HorizontalAlignment="Left" Margin="10,588,0,0" VerticalAlignment="Top" Width="985" Grid.ColumnSpan="4"/>
-        <Button x:Name="buttonMenExportData" Content="Eksportuj dane" HorizontalAlignment="Left" Margin="73.43,497,0,0" VerticalAlignment="Top" Width="92" Grid.Column="1" Height="26"/>
-        <Label x:Name="labelMenExport" Content="Archiwizacja" HorizontalAlignment="Left" Margin="25,497,0,0" VerticalAlignment="Top" Width="173"/>
+        <Label x:Name="labelLog" Content="Active" HorizontalAlignment="Left" Margin="10,588,0,0" VerticalAlignment="Top" Width="985" Grid.ColumnSpan="4"/>
+        <Button x:Name="buttonMenExportData" Content="Export" HorizontalAlignment="Left" Margin="73.43,497,0,0" VerticalAlignment="Top" Width="92" Grid.Column="1" Height="26"/>
+        <Label x:Name="labelMenExport" Content="Add to archive" HorizontalAlignment="Left" Margin="25,497,0,0" VerticalAlignment="Top" Width="173"/>
     </Grid>
 </Window>

@@ -205,7 +205,7 @@ Public Class Duty
     ' (id_personelu, data) + and data base id.
     Function FormQuerry_SelectSpecialForExport_Header() As String
         Dim header As String = String.Empty
-        header = "id_wpisu;id_personelu;data_dyżuru;"
+        header = "id_wpisu;id_personelu;data_dyzuru;"
         Return header
     End Function
 
