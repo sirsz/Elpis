@@ -95,7 +95,7 @@ Public Class DataLoaderModule
                     currentRow = MyReader.ReadFields()
                     Select Case loadingCategory
                         Case LoadingCategory.LOADING_WARD
-                            If currentRow.Count = 5 Or currentRow.Count = 6 Then ' Wards must have 5 elements
+                            If currentRow.Count >= 4 Then ' Visits must have 4 or more elements
                                 'Here is defined order of the CSV file: 
                                 'Wczytaj oddziały: Ward.csv
                                 'ID_WARD;NAME;TYPE;MAX_BED_NUMBER;MEN_BED_OCCUP; DESCR
