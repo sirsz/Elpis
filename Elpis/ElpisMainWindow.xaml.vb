@@ -1267,7 +1267,7 @@ Public Class ElpisMainWindow
         ' Disable Button 'New' for Tab Ward - freature requested 2017.07
         If TabItem2Ward.IsSelected() Then
             buttonNavNew.IsEnabled = False
-        ElseIf TabItem3room.IsSelected() Then
+        ElseIf TabItem3Room.IsSelected() Then
             buttonNavNew.IsEnabled = False
         Else
             buttonNavNew.IsEnabled = True
